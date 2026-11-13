@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magnit tortlari</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root {
+    --bg: var(--tg-theme-bg-color, #ffffff);
+    --text: var(--tg-theme-text-color, #1d1b20);
+    --hint: var(--tg-theme-hint-color, #8b8790);
+    --card: var(--tg-theme-secondary-bg-color, #f6f1ee);
+    --btn: var(--tg-theme-button-color, #c2185b);
+    --btn-text: var(--tg-theme-button-text-color, #ffffff);
+    --accent: #c2185b;
+    --line: rgba(127,127,127,.18);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { padding-bottom: 96px; }
+  button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0 6px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  header h1 { margin: 0; font-size: 22px; }
+  header p { margin: 2px 0 0; color: var(--hint); font-size: 13px; }
+  .lang { display: flex; background: var(--card); border-radius: 999px; padding: 3px; flex: none; }
+  .lang button { padding: 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--hint); }
+  .lang button.on { background: var(--btn); color: var(--btn-text); }
+  h2 { font-size: 16px; margin: 18px 0 8px; }
+
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 8px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; padding: 8px 12px; border-radius: 999px; background: var(--card); white-space: nowrap; font-size: 14px; }
+  .chip.on { background: var(--btn); color: var(--btn-text); }
+  .event-chip { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 82px;
+    padding: 10px 4px; border-radius: var(--radius); background: var(--card); font-size: 12px; text-align: center; flex: none; }
+  .event-chip span { font-size: 26px; line-height: 1; }
+  .event-chip.on { outline: 2px solid var(--btn); background: color-mix(in srgb, var(--btn) 12%, var(--card)); }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card { background: var(--card); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .pic { aspect-ratio: 1 / 1; display: grid; place-items: center; font-size: 56px; width: 100%;
+    background: linear-gradient(135deg, #fde2ec, #fff3e0); }
+  .pic { position: relative; overflow: hidden; }
+  .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .body { padding: 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .card .name { font-weight: 600; font-size: 14px; }
+  .card .price { font-size: 13px; color: var(--hint); }
+  .card .price b { color: var(--text); }
+  .badge { font-size: 11px; color: var(--accent); }
+  .add { margin-top: auto; padding: 8px; border-radius: 10px; background: var(--btn); color: var(--btn-text); font-weight: 600; }
+  .stepper { margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg); border-radius: 10px; padding: 2px; }
+  .stepper button { width: 36px; height: 34px; font-size: 20px; border-radius: 8px; }
+  .stepper b { min-width: 36px; text-align: center; }
+  .empty { color: var(--hint); text-align: center; padding: 30px 0; }
+
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: var(--bg); border-top: 1px solid var(--line); }
+  .bar button { width: 100%; max-width: 608px; margin: 0 auto; display: block; padding: 14px; border-radius: 12px;
+    background: var(--btn); color: var(--btn-text); font-weight: 700; font-size: 16px; }
+  .bar button:disabled { opacity: .5; }
+
+  .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; z-index: 10; }
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 88vh; overflow: auto; background: var(--bg);
+    border-radius: 18px 18px 0 0; z-index: 11; display: none; padding-bottom: env(safe-area-inset-bottom); }
+  .sheet .pic { aspect-ratio: 4 / 3; font-size: 90px; }
+  .sheet .add { width: 100%; padding: 12px; }
+  .sheet .inner { padding: 14px 16px 18px; }
+  .sheet h3 { margin: 0 0 4px; font-size: 19px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .tags span { font-size: 12px; background: var(--card); padding: 4px 8px; border-radius: 999px; }
+  .specs { margin: 12px 0; border-radius: 12px; background: var(--card); padding: 4px 12px; }
+  .specs div { display: grid; grid-template-columns: 110px 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .specs div:last-child { border: 0; }
+  .specs span { color: var(--hint); }
+  .card .meta { font-size: 12px; color: var(--hint); }
+  .close { position: absolute; right: 12px; top: 12px; width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(0,0,0,.45); color: #fff; font-size: 18px; }
+
+  .field { margin: 10px 0; }
+  .field label { display: block; font-size: 13px; color: var(--hint); margin-bottom: 4px; }
+  input, select, textarea { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--card); color: var(--text); font: inherit; }
+  textarea { resize: vertical; min-height: 64px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opts { display: grid; gap: 8px; }
+  .opt { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; background: var(--card); border: 2px solid transparent; text-align: left; width: 100%; }
+  .opt.on { border-color: var(--btn); }
+  .opt .ico { font-size: 22px; width: 30px; text-align: center; }
+  .opt small { display: block; color: var(--hint); font-size: 12px; }
+  .line { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .line:last-child { border: 0; }
+  .sum { background: var(--card); border-radius: var(--radius); padding: 6px 14px; margin-top: 8px; }
+  .sum .big { font-weight: 700; font-size: 17px; }
+  .sum .dep { color: var(--accent); font-weight: 700; }
+  .err { color: #d32f2f; font-size: 13px; margin-top: 8px; min-height: 18px; }
+  .back { padding: 16px 0 0; color: var(--btn); font-weight: 600; }
+  .note { font-size: 12px; color: var(--hint); margin-top: 4px; }
+  .cart-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .cart-item .pic { width: 52px; height: 52px; border-radius: 10px; font-size: 26px; flex: none; aspect-ratio: auto; overflow: hidden; }
+  .cart-item .info { flex: 1; min-width: 0; }
+  .cart-item .stepper { margin: 0; background: var(--card); }
+  .done { text-align: center; padding: 60px 16px; }
+  .done div { font-size: 64px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- KATALOG -->
+<section id="catalog" class="wrap">
+  <header>
+    <div>
+      <h1 id="shopName">Magnit tortlari</h1>
+      <p data-i18n="tagline"></p>
+    </div>
+    <div class="lang" id="langSwitch">
+      <button data-lang="uz">O'zb</button>
+      <button data-lang="ru">Рус</button>
+    </div>
+  </header>
+  <h2 data-i18n="whichEvent"></h2>
+  <div class="chips" id="events"></div>
+  <div class="chips" id="cats"></div>
+  <div class="grid" id="grid"></div>
+  <p class="empty hidden" id="empty" data-i18n="emptyCat"></p>
+</section>
+
+<!-- RASMIYLASHTIRISH -->
+<section id="checkout" class="wrap hidden">
+  <button class="back" id="backBtn" data-i18n="back"></button>
+  <h2 data-i18n="cart"></h2>
+  <div id="cartList"></div>
+
+  <h2 data-i18n="orderInfo"></h2>
+  <div class="field"><label data-i18n="eventType"></label><select id="fEvent"></select></div>
+  <div class="row">
+    <div class="field"><label data-i18n="date"></label><input type="date" id="fDate"></div>
+    <div class="field"><label data-i18n="time"></label><input type="time" id="fTime" value="12:00"></div>
+  </div>
+  <p class="note" id="dateNote"></p>
+
+  <h2 data-i18n="howGet"></h2>
+  <div class="opts" id="delivery">
+    <button class="opt on" data-v="p"><span class="ico">🏃</span><span><span data-i18n="pickup"></span><small data-i18n="pickupHint"></small></span></button>
+    <button class="opt" data-v="d"><span class="ico">🚚</span><span><span data-i18n="deliveryOpt"></span><small data-i18n="deliveryHint"></small></span></button>
+  </div>
+  <div class="field hidden" id="addrField"><label data-i18n="address"></label><textarea id="fAddr" maxlength="200" data-i18n-ph="addressPh"></textarea></div>
+
+  <h2 data-i18n="contact"></h2>
+  <div class="field"><label data-i18n="yourName"></label><input id="fName" maxlength="60" autocomplete="name"></div>
+  <div class="field"><label data-i18n="phone"></label><input id="fPhone" type="tel" maxlength="20" value="+998 " autocomplete="tel"></div>
+  <div class="field"><label data-i18n="note"></label><textarea id="fNote" maxlength="300" data-i18n-ph="notePh"></textarea></div>
+
+  <h2 data-i18n="payMethod"></h2>
+  <div class="opts" id="payments"></div>
+
+  <div class="sum" id="summary"></div>
+  <div class="err" id="err"></div>
+</section>
+
+<section id="done" class="done hidden">
+  <div>✅</div>
+  <h2 data-i18n="sent"></h2>
+  <p id="doneText"></p>
+</section>
+
+<div class="bar"><button id="mainBtn" disabled></button></div>
+
+<div class="sheet-bg" id="sheetBg"></div>
+<div class="sheet" id="sheet"></div>
+
+<script>
+const tg = window.Telegram && window.Telegram.WebApp;
+// Pastdagi tugma orqali ochilganda initData bo'sh keladi, shuning uchun platformaga qaraymiz
+const inTelegram = !!(tg && tg.platform && tg.platform !== "unknown");
+if (tg) { tg.ready(); tg.expand(); }
+
+// ---------- Tarjimalar ----------
+const I18N = {
+  uz: {
+    tagline: "Bayramingizga mos shirinlikni tanlang 🍰", whichEvent: "Qanday bayram?", all: "Hammasi",
+    emptyCat: "Bu bo'limda mahsulot yo'q", add: "+ Qo'shish", daysBefore: d => `⏰ ${d} kun oldin buyurtma`,
+    daysBeforeLong: d => `⏰ Kamida ${d} kun oldin buyurtma qilinadi`,
+    cartEmpty: "Savatcha bo'sh", cartBtn: (n, s) => `Savatcha (${n}) · ${s} →`, orderBtn: "✅ Buyurtma berish",
+    back: "← Menyuga qaytish", cart: "🛒 Savatcha", orderInfo: "📅 Buyurtma ma'lumotlari", eventType: "Bayram turi",
+    date: "Sana", time: "Vaqt", dateNote: (d, min) => `⏰ Bu buyurtmani kamida ${d} kun oldin berish kerak. Eng erta sana: ${min}`,
+    howGet: "🚚 Olish usuli", pickup: "O'zim olib ketaman", pickupHint: "Sexdan olib ketish",
+    deliveryOpt: "Yetkazib berish", deliveryHint: "Manzilingizga olib boramiz", address: "Manzil",
+    addressPh: "Shahar, ko'cha, uy, mo'ljal", contact: "👤 Aloqa", yourName: "Ismingiz", phone: "Telefon raqam",
+    note: "Tortga yozuv yoki istaklar", notePh: "Masalan: «Tabriklaymiz, Aziza!», oq-pushti rangda",
+    payMethod: "💳 To'lov usuli", total: "Jami",
+    deposit: (p, when) => `Zaklad (${p}%) — ${when}`, depNowVia: n => `hozir ${n} orqali`, depCash: "sexga kelib to'lanadi",
+    rest: "Qolgan summa — buyurtmani olganda",
+    payHint: { click: "Zakladni hozir Click orqali to'laysiz", payme: "Zakladni hozir Payme orqali to'laysiz", cash: "Zakladni sexga kelib to'laysiz" },
+    cash: "Naqd pul",
+    errEmpty: "Savatcha bo'sh", errDate: min => `Sanani to'g'ri tanlang (eng erta: ${min})`, errAddr: "Yetkazib berish manzilini yozing",
+    errName: "Ismingizni yozing", errPhone: "Telefon raqamni to'liq yozing",
+    errSend: "Yuborib bo'lmadi. Ilovani yopib, pastdagi «🛍 Ilovani ochish» tugmasi orqali qayta oching.",
+    sent: "Buyurtma yuborildi!", testMode: "Bu test rejimi: ilova Telegram ichida ochilganda buyurtma botga yuboriladi.",
+    som: "so'm", loadErr: "Menyuni yuklab bo'lmadi. Keyinroq urinib ko'ring.",
+    specTiers: "Qavatlar", specWeight: "Og'irligi", specCream: "Krem", specFilling: "Ichida", specDecor: "Bezak",
+    tiersVal: n => `${n} qavat`, more: "Batafsil →",
+    specPieces: "Bo'laklar soni", piecesVal: n => `${n} bo'lak`
+  },
+  ru: {
+    tagline: "Выберите сладости для вашего праздника 🍰", whichEvent: "Какой праздник?", all: "Все",
+    emptyCat: "В этом разделе пока нет товаров", add: "+ Добавить", daysBefore: d => `⏰ Заказ за ${d} дн.`,
+    daysBeforeLong: d => `⏰ Заказывать минимум за ${d} дн.`,
+    cartEmpty: "Корзина пуста", cartBtn: (n, s) => `Корзина (${n}) · ${s} →`, orderBtn: "✅ Оформить заказ",
+    back: "← Назад в меню", cart: "🛒 Корзина", orderInfo: "📅 Детали заказа", eventType: "Тип праздника",
+    date: "Дата", time: "Время", dateNote: (d, min) => `⏰ Этот заказ нужно оформить минимум за ${d} дн. Самая ранняя дата: ${min}`,
+    howGet: "🚚 Способ получения", pickup: "Самовывоз", pickupHint: "Заберу из цеха",
+    deliveryOpt: "Доставка", deliveryHint: "Привезём по вашему адресу", address: "Адрес",
+    addressPh: "Город, улица, дом, ориентир", contact: "👤 Контакты", yourName: "Ваше имя", phone: "Номер телефона",
+    note: "Надпись на торте или пожелания", notePh: "Например: «С днём рождения, Азиза!», бело-розовый цвет",
+    payMethod: "💳 Способ оплаты", total: "Итого",
+    deposit: (p, when) => `Предоплата (${p}%) — ${when}`, depNowVia: n => `сейчас через ${n}`, depCash: "оплата в цехе",
+    rest: "Остаток — при получении",
+    payHint: { click: "Предоплата сейчас через Click", payme: "Предоплата сейчас через Payme", cash: "Предоплату внесёте в цехе" },
+    cash: "Наличные",
+    errEmpty: "Корзина пуста", errDate: min => `Выберите правильную дату (не раньше ${min})`, errAddr: "Укажите адрес доставки",
+    errName: "Укажите ваше имя", errPhone: "Укажите полный номер телефона",
+    errSend: "Не удалось отправить. Закройте приложение и откройте снова кнопкой «🛍 Открыть приложение».",
+    sent: "Заказ отправлен!", testMode: "Тестовый режим: заказ отправляется боту, когда приложение открыто в Telegram.",
+    som: "сум", loadErr: "Не удалось загрузить меню. Попробуйте позже.",
+    specTiers: "Ярусы", specWeight: "Вес", specCream: "Крем", specFilling: "Начинка", specDecor: "Декор",
+    tiersVal: n => `${n} ярус${n > 1 ? (n < 5 ? "а" : "ов") : ""}`, more: "Подробнее →",
+    specPieces: "Кол-во кусочков", piecesVal: n => `${n} шт.`
+  }
+};
+
+function pickLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (I18N[q]) return q;
+  try { const s = localStorage.getItem("lang"); if (I18N[s]) return s; } catch (e) {}
+  const code = tg && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.language_code;
+  return code === "ru" ? "ru" : "uz";
+}
+let LANG = pickLang();
+const t = (k, ...a) => { const v = I18N[LANG][k]; return typeof v === "function" ? v(...a) : v; };
+const tr = x => (x && typeof x === "object") ? (x[LANG] || x.uz) : (x || "");
+
+const PAY_ICO = { click: "🟦", payme: "🟩", cash: "💵" };
+const payName = k => k === "cash" ? t("cash") : (k === "click" ? "Click" : "Payme");
+
+let M = null;
+const cart = {};          // { productId: qty }
+let curEvent = "all", curCat = "all", screen = "catalog";
+let delivery = "p", payMethod = null;
+
+const $ = id => document.getElementById(id);
+const money = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + t("som");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const haptic = () => { try { tg && tg.HapticFeedback.selectionChanged(); } catch (e) {} };
+
+fetch("menu.json?v=" + Date.now())
+  .then(r => r.json())
+  .then(data => { M = data; init(); })
+  .catch(() => { document.body.innerHTML = `<p class="empty">${t("loadErr")}</p>`; });
+
+function pic(p) {
+  return p.image
+    ? `<div class="pic"><img src="${esc(p.image)}" alt="${esc(tr(p.name))}" loading="lazy"></div>`
+    : `<div class="pic">${p.emoji || "🍰"}</div>`;
+}
+const prod = id => M.products.find(p => p.id === id);
+const unit = p => tr((M.units || {})[p.unit]) || p.unit;
+const total = () => Object.entries(cart).reduce((s, [id, q]) => s + prod(id).price * q, 0);
+const count = () => Object.values(cart).reduce((s, q) => s + q, 0);
+const deposit = x => Math.min(x, Math.ceil(x * M.shop.deposit_percent / 100 / 1000) * 1000);
+
+function init() {
+  $("shopName").textContent = M.shop.name;
+  document.title = M.shop.name;
+  payMethod = M.shop.payment_methods[0];
+
+  const u = inTelegram && tg.initDataUnsafe && tg.initDataUnsafe.user;
+  if (u) $("fName").value = [u.first_name, u.last_name].filter(Boolean).join(" ");
+
+  $("langSwitch").onclick = e => {
+    const b = e.target.closest("[data-lang]"); if (!b || b.dataset.lang === LANG) return;
+    haptic(); LANG = b.dataset.lang;
+    try { localStorage.setItem("lang", LANG); } catch (err) {}
+    applyLang();
+  };
+  $("backBtn").onclick = () => show("catalog");
+  $("mainBtn").onclick = () => screen === "catalog" ? show("checkout") : submit();
+  $("sheetBg").onclick = closeSheet;
+  applyLang();
+}
+
+function applyLang() {
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === LANG));
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+
+  const ev = $("fEvent").value;
+  $("fEvent").innerHTML = M.events.filter(e => !e.service).map(e => `<option value="${e.id}">${e.emoji} ${esc(tr(e.name))}</option>`).join("");
+  if (ev) $("fEvent").value = ev;
+  $("payments").innerHTML = M.shop.payment_methods.map(k =>
+    `<button class="opt" data-v="${k}"><span class="ico">${PAY_ICO[k]}</span><span>${esc(payName(k))}<small>${esc(t("payHint")[k])}</small></span></button>`).join("");
+  pickOpt("payments", payMethod, v => { payMethod = v; });
+  pickOpt("delivery", delivery, v => { delivery = v; $("addrField").classList.toggle("hidden", v !== "d"); });
+
+  renderEvents(); renderCats(); renderGrid(); updateBar();
+  if (screen === "checkout") { renderCart(); updateDateNote(); }
+  if (screen === "done") $("doneText").textContent = inTelegram ? "" : t("testMode");
+}
+
+function pickOpt(boxId, value, onPick) {
+  const box = $(boxId);
+  const set = v => box.querySelectorAll(".opt").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  set(value);
+  box.onclick = e => { const b = e.target.closest(".opt"); if (!b) return; haptic(); set(b.dataset.v); onPick(b.dataset.v); renderSummary(); };
+}
+
+function renderEvents() {
+  const all = [{ id: "all", name: t("all"), emoji: "✨" }, ...M.events];
+  $("events").innerHTML = all.map(e =>
+    `<button class="event-chip ${e.id === curEvent ? "on" : ""}" data-id="${e.id}"><span>${e.emoji}</span>${esc(tr(e.name))}</button>`).join("");
+  $("events").onclick = ev => { const b = ev.target.closest("button"); if (!b) return; haptic(); curEvent = b.dataset.id; renderEvents(); renderGrid(); };
+}
+function renderCats() {
+  const all = [{ id: "all", name: t("all") }, ...M.categories];
+  $("cats").innerHTML = all.map(c => `<button class="chip ${c.id === curCat ? "on" : ""}" data-id="${c.id}">${esc(tr(c.name))}</button>`).join("");
+  $("cats").onclick = ev => { const b = ev.target.closest("button"); if (!b) return; haptic(); curCat = b.dataset.id; renderCats(); renderGrid(); };
+}
+
+function controls(p) {
+  const q = cart[p.id] || 0;
+  return q
+    ? `<div class="stepper"><button data-act="-" data-id="${p.id}">−</button><b>${q} ${esc(unit(p))}</b><button data-act="+" data-id="${p.id}">+</button></div>`
+    : `<button class="add" data-act="+" data-id="${p.id}">${t("add")}</button>`;
+}
+
+function renderGrid() {
+  const list = M.products.filter(p =>
+    (curEvent === "all" || p.events.includes(curEvent)) && (curCat === "all" || p.category === curCat));
+  $("empty").classList.toggle("hidden", list.length > 0);
+  $("grid").innerHTML = list.map(p => `
+    <div class="card">
+      <button data-open="${p.id}">${pic(p)}</button>
+      <div class="body">
+        <div class="name">${esc(tr(p.name))}</div>
+        <div class="price"><b>${money(p.price)}</b> / ${esc(unit(p))}</div>
+        ${p.specs ? `<div class="meta">${esc([p.specs.tiers && t("tiersVal", p.specs.tiers), p.specs.pieces && t("piecesVal", p.specs.pieces), p.specs.weight].filter(Boolean).join(" · "))} · <button data-open="${p.id}" style="color:var(--btn);font-size:12px">${t("more")}</button></div>` : ""}
+        ${p.min_days ? `<div class="badge">${t("daysBefore", p.min_days)}</div>` : ""}
+        ${controls(p)}
+      </div>
+    </div>`).join("");
+}
+
+document.addEventListener("click", e => {
+  const o = e.target.closest("[data-open]");
+  if (o) return openSheet(o.dataset.open);
+  const b = e.target.closest("[data-act]");
+  if (!b) return;
+  haptic();
+  const id = b.dataset.id;
+  cart[id] = Math.max(0, Math.min(100, (cart[id] || 0) + (b.dataset.act === "+" ? 1 : -1)));
+  if (!cart[id]) delete cart[id];
+  renderGrid(); updateBar();
+  if (screen === "checkout") { renderCart(); if (!count()) show("catalog"); }
+  if ($("sheet").style.display === "block") openSheet(id);
+});
+
+function openSheet(id) {
+  const p = prod(id);
+  const tags = p.events.map(eid => M.events.find(e => e.id === eid)).filter(e => e && !e.service)
+    .map(e => `<span>${e.emoji} ${esc(tr(e.name))}</span>`).join("");
+  $("sheet").innerHTML = `
+    <div style="position:relative">${pic(p)}<button class="close" onclick="closeSheet()">✕</button></div>
+    <div class="inner">
+      <h3>${esc(tr(p.name))}</h3>
+      <div class="price"><b>${money(p.price)}</b> / ${esc(unit(p))}</div>
+      <p>${esc(tr(p.description))}</p>
+      ${specsHtml(p)}
+      ${p.min_days ? `<p class="badge">${t("daysBeforeLong", p.min_days)}</p>` : ""}
+      <div class="tags">${tags}</div>
+      ${controls(p)}
+    </div>`;
+  $("sheet").style.display = $("sheetBg").style.display = "block";
+}
+function specsHtml(p) {
+  const s = p.specs;
+  if (!s) return "";
+  const rows = [
+    ["specTiers", s.tiers && t("tiersVal", s.tiers)],
+    ["specPieces", s.pieces && t("piecesVal", s.pieces)],
+    ["specWeight", s.weight],
+    ["specCream", tr(s.cream)],
+    ["specFilling", tr(s.filling)],
+    ["specDecor", tr(s.decor)]
+  ].filter(r => r[1]);
+  return `<div class="specs">${rows.map(([k, v]) => `<div><span>${t(k)}</span><b>${esc(v)}</b></div>`).join("")}</div>`;
+}
+function closeSheet() { $("sheet").style.display = $("sheetBg").style.display = "none"; }
+
+function updateBar() {
+  const btn = $("mainBtn"), n = count();
+  if (screen === "checkout") { btn.disabled = false; btn.textContent = t("orderBtn"); return; }
+  btn.disabled = !n;
+  btn.textContent = n ? t("cartBtn", n, money(total())) : t("cartEmpty");
+}
+
+function minDays() {
+  return Math.max(M.shop.min_days_ahead || 0, ...Object.keys(cart).map(id => prod(id).min_days || 0));
+}
+function isoDate(d) { return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); }
+function updateDateNote() {
+  const md = minDays();
+  $("dateNote").textContent = md ? t("dateNote", md, $("fDate").min) : "";
+}
+
+function show(name) {
+  screen = name; closeSheet();
+  $("catalog").classList.toggle("hidden", name !== "catalog");
+  $("checkout").classList.toggle("hidden", name !== "checkout");
+  $("done").classList.toggle("hidden", name !== "done");
+  document.querySelector(".bar").classList.toggle("hidden", name === "done");
+  if (tg) { name === "checkout" ? tg.BackButton.show() : tg.BackButton.hide(); }
+  if (name === "checkout") {
+    const d = new Date(); d.setDate(d.getDate() + minDays());
+    $("fDate").min = isoDate(d);
+    if (!$("fDate").value || $("fDate").value < $("fDate").min) $("fDate").value = isoDate(d);
+    updateDateNote();
+    const ce = M.events.find(e => e.id === curEvent);
+    if (ce && !ce.service) $("fEvent").value = curEvent;
+    renderCart(); $("err").textContent = "";
+  }
+  if (name === "done") $("doneText").textContent = inTelegram ? "" : t("testMode");
+  updateBar(); window.scrollTo(0, 0);
+}
+if (tg) tg.BackButton.onClick(() => show("catalog"));
+
+function renderCart() {
+  $("cartList").innerHTML = Object.entries(cart).map(([id, q]) => {
+    const p = prod(id);
+    return `<div class="cart-item">${pic(p)}
+      <div class="info"><div class="name">${esc(tr(p.name))}</div><div class="price">${money(p.price * q)}</div></div>
+      <div class="stepper"><button data-act="-" data-id="${id}">−</button><b>${q}</b><button data-act="+" data-id="${id}">+</button></div>
+    </div>`;
+  }).join("");
+  renderSummary();
+}
+
+function renderSummary() {
+  if (!M) return;
+  const x = total(), dep = deposit(x);
+  const when = payMethod === "cash" ? t("depCash") : t("depNowVia", payName(payMethod));
+  $("summary").innerHTML = `
+    <div class="line"><span>${t("total")}</span><span class="big">${money(x)}</span></div>
+    <div class="line"><span>${esc(t("deposit", M.shop.deposit_percent, when))}</span><span class="dep">${money(dep)}</span></div>
+    <div class="line"><span>${t("rest")}</span><span>${money(x - dep)}</span></div>`;
+}
+
+function submit() {
+  const err = m => { $("err").textContent = "⚠️ " + m; try { tg && tg.HapticFeedback.notificationOccurred("error"); } catch (e) {} };
+  const name = $("fName").value.trim(), phone = $("fPhone").value.trim();
+  if (!count()) return err(t("errEmpty"));
+  if (!$("fDate").value || $("fDate").value < $("fDate").min) return err(t("errDate", $("fDate").min));
+  if (delivery === "d" && !$("fAddr").value.trim()) return err(t("errAddr"));
+  if (name.length < 2) return err(t("errName"));
+  if (phone.replace(/\D/g, "").length < 9) return err(t("errPhone"));
+
+  const payload = {
+    v: 1,
+    lang: LANG,
+    items: Object.entries(cart),
+    ev: $("fEvent").value,
+    d: $("fDate").value,
+    t: $("fTime").value,
+    dl: delivery,
+    a: delivery === "d" ? $("fAddr").value.trim().slice(0, 200) : "",
+    n: name.slice(0, 60),
+    ph: phone.slice(0, 20),
+    note: $("fNote").value.trim().slice(0, 300),
+    pm: payMethod
+  };
+  if (inTelegram) {
+    try {
+      tg.sendData(JSON.stringify(payload));   // bot buyurtmani oladi va ilova yopiladi
+    } catch (e) {
+      err(t("errSend"));
+    }
+  } else {
+    console.log("Buyurtma (test):", payload);
+    show("done");
+  }
+}
+</script>
+</body>
+</html>
