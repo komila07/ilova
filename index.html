@@ -166,6 +166,12 @@
   <h2 data-i18n="payMethod"></h2>
   <div class="opts" id="payments"></div>
 
+  <h2 data-i18n="payAmount"></h2>
+  <div class="opts" id="payAmount">
+    <button class="opt on" data-v="dep"><span class="ico">🪙</span><span><span data-i18n="optDeposit"></span><small data-i18n="optDepositHint"></small></span></button>
+    <button class="opt" data-v="full"><span class="ico">✅</span><span><span data-i18n="optFull"></span><small data-i18n="optFullHint"></small></span></button>
+  </div>
+
   <div class="sum" id="summary"></div>
   <div class="err" id="err"></div>
 </section>
@@ -203,7 +209,7 @@ const I18N = {
     payMethod: "💳 To'lov usuli", total: "Jami",
     deposit: (p, when) => `Zaklad (${p}%) — ${when}`, depNowVia: n => `hozir ${n} orqali`, depCash: "sexga kelib to'lanadi",
     rest: "Qolgan summa — buyurtmani olganda",
-    payHint: { click: "Zakladni hozir Click orqali to'laysiz", payme: "Zakladni hozir Payme orqali to'laysiz", cash: "Zakladni sexga kelib to'laysiz" },
+    payHint: { click: "Hozir Click orqali onlayn to'laysiz", payme: "Hozir Payme orqali onlayn to'laysiz", cash: "Sexga kelib naqd to'laysiz" },
     cash: "Naqd pul",
     errEmpty: "Savatcha bo'sh", errDate: min => `Sanani to'g'ri tanlang (eng erta: ${min})`, errAddr: "Yetkazib berish manzilini yozing",
     errName: "Ismingizni yozing", errPhone: "Telefon raqamni to'liq yozing",
@@ -212,7 +218,10 @@ const I18N = {
     som: "so'm", loadErr: "Menyuni yuklab bo'lmadi. Keyinroq urinib ko'ring.",
     specTiers: "Qavatlar", specWeight: "Og'irligi", specCream: "Krem", specFilling: "Ichida", specDecor: "Bezak",
     tiersVal: n => `${n} qavat`, more: "Batafsil →",
-    specPieces: "Bo'laklar soni", piecesVal: n => `${n} bo'lak`, specComposition: "Tarkibi"
+    specPieces: "Bo'laklar soni", piecesVal: n => `${n} bo'lak`, specComposition: "Tarkibi",
+    payAmount: "💰 Qancha to'laysiz?", optDeposit: "Zaklad to'lash", optDepositHint: "Hozir bir qismi, qolgani buyurtmani olganda",
+    optFull: "To'liq to'lash", optFullHint: "Hamma summani birdaniga to'laysiz",
+    fullLine: when => `To'liq to'lov — ${when}`, fullCash: "sexga kelib to'lanadi"
   },
   ru: {
     tagline: "Выберите сладости для вашего праздника 🍰", whichEvent: "Какой праздник?", all: "Все",
@@ -228,7 +237,7 @@ const I18N = {
     payMethod: "💳 Способ оплаты", total: "Итого",
     deposit: (p, when) => `Предоплата (${p}%) — ${when}`, depNowVia: n => `сейчас через ${n}`, depCash: "оплата в цехе",
     rest: "Остаток — при получении",
-    payHint: { click: "Предоплата сейчас через Click", payme: "Предоплата сейчас через Payme", cash: "Предоплату внесёте в цехе" },
+    payHint: { click: "Онлайн-оплата сейчас через Click", payme: "Онлайн-оплата сейчас через Payme", cash: "Наличными в цехе" },
     cash: "Наличные",
     errEmpty: "Корзина пуста", errDate: min => `Выберите правильную дату (не раньше ${min})`, errAddr: "Укажите адрес доставки",
     errName: "Укажите ваше имя", errPhone: "Укажите полный номер телефона",
@@ -237,7 +246,10 @@ const I18N = {
     som: "сум", loadErr: "Не удалось загрузить меню. Попробуйте позже.",
     specTiers: "Ярусы", specWeight: "Вес", specCream: "Крем", specFilling: "Начинка", specDecor: "Декор",
     tiersVal: n => `${n} ярус${n > 1 ? (n < 5 ? "а" : "ов") : ""}`, more: "Подробнее →",
-    specPieces: "Кол-во кусочков", piecesVal: n => `${n} шт.`, specComposition: "Состав"
+    specPieces: "Кол-во кусочков", piecesVal: n => `${n} шт.`, specComposition: "Состав",
+    payAmount: "💰 Сколько оплатите?", optDeposit: "Предоплата", optDepositHint: "Сейчас часть суммы, остаток при получении",
+    optFull: "Полная оплата", optFullHint: "Вся сумма сразу",
+    fullLine: when => `Полная оплата — ${when}`, fullCash: "оплата в цехе"
   }
 };
 
@@ -258,7 +270,7 @@ const payName = k => k === "cash" ? t("cash") : (k === "click" ? "Click" : "Paym
 let M = null;
 const cart = {};          // { productId: qty }
 let curEvent = "all", curCat = "all", screen = "catalog";
-let delivery = "p", payMethod = null;
+let delivery = "p", payMethod = null, payFull = false;
 
 const $ = id => document.getElementById(id);
 const money = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + t("som");
@@ -322,6 +334,7 @@ function applyLang() {
   $("payments").innerHTML = M.shop.payment_methods.map(k =>
     `<button class="opt" data-v="${k}"><span class="ico">${PAY_ICO[k]}</span><span>${esc(payName(k))}<small>${esc(t("payHint")[k])}</small></span></button>`).join("");
   pickOpt("payments", payMethod, v => { payMethod = v; });
+  pickOpt("payAmount", payFull ? "full" : "dep", v => { payFull = v === "full"; });
   pickOpt("delivery", delivery, v => { delivery = v; $("addrField").classList.toggle("hidden", v !== "d"); });
 
   renderEvents(); renderCats(); renderGrid(); updateBar();
@@ -476,6 +489,13 @@ function renderSummary() {
   if (!M) return;
   const x = total(), dep = deposit(x);
   const when = payMethod === "cash" ? t("depCash") : t("depNowVia", payName(payMethod));
+  if (payFull) {
+    const whenFull = payMethod === "cash" ? t("fullCash") : t("depNowVia", payName(payMethod));
+    $("summary").innerHTML = `
+    <div class="line"><span>${t("total")}</span><span class="big">${money(x)}</span></div>
+    <div class="line"><span>${esc(t("fullLine", whenFull))}</span><span class="dep">${money(x)}</span></div>`;
+    return;
+  }
   $("summary").innerHTML = `
     <div class="line"><span>${t("total")}</span><span class="big">${money(x)}</span></div>
     <div class="line"><span>${esc(t("deposit", M.shop.deposit_percent, when))}</span><span class="dep">${money(dep)}</span></div>
@@ -503,7 +523,8 @@ function submit() {
     n: name.slice(0, 60),
     ph: phone.slice(0, 20),
     note: $("fNote").value.trim().slice(0, 300),
-    pm: payMethod
+    pm: payMethod,
+    full: payFull
   };
   if (inTelegram) {
     try {
