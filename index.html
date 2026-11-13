@@ -212,7 +212,7 @@ const I18N = {
     som: "so'm", loadErr: "Menyuni yuklab bo'lmadi. Keyinroq urinib ko'ring.",
     specTiers: "Qavatlar", specWeight: "Og'irligi", specCream: "Krem", specFilling: "Ichida", specDecor: "Bezak",
     tiersVal: n => `${n} qavat`, more: "Batafsil →",
-    specPieces: "Bo'laklar soni", piecesVal: n => `${n} bo'lak`
+    specPieces: "Bo'laklar soni", piecesVal: n => `${n} bo'lak`, specComposition: "Tarkibi"
   },
   ru: {
     tagline: "Выберите сладости для вашего праздника 🍰", whichEvent: "Какой праздник?", all: "Все",
@@ -237,7 +237,7 @@ const I18N = {
     som: "сум", loadErr: "Не удалось загрузить меню. Попробуйте позже.",
     specTiers: "Ярусы", specWeight: "Вес", specCream: "Крем", specFilling: "Начинка", specDecor: "Декор",
     tiersVal: n => `${n} ярус${n > 1 ? (n < 5 ? "а" : "ов") : ""}`, more: "Подробнее →",
-    specPieces: "Кол-во кусочков", piecesVal: n => `${n} шт.`
+    specPieces: "Кол-во кусочков", piecesVal: n => `${n} шт.`, specComposition: "Состав"
   }
 };
 
@@ -365,7 +365,7 @@ function renderGrid() {
       <div class="body">
         <div class="name">${esc(tr(p.name))}</div>
         <div class="price"><b>${money(p.price)}</b> / ${esc(unit(p))}</div>
-        ${p.specs ? `<div class="meta">${esc([p.specs.tiers && t("tiersVal", p.specs.tiers), p.specs.pieces && t("piecesVal", p.specs.pieces), p.specs.weight].filter(Boolean).join(" · "))} · <button data-open="${p.id}" style="color:var(--btn);font-size:12px">${t("more")}</button></div>` : ""}
+        ${p.specs ? `<div class="meta">${esc([p.specs.tiers && t("tiersVal", p.specs.tiers), p.specs.pieces && t("piecesVal", p.specs.pieces), p.specs.weight, ""].filter(x => x !== undefined && x !== 0 && x !== null && x !== false).join(" · ")).replace(/^ · /, "")}<button data-open="${p.id}" style="color:var(--btn);font-size:12px">${t("more")}</button></div>` : ""}
         ${p.min_days ? `<div class="badge">${t("daysBefore", p.min_days)}</div>` : ""}
         ${controls(p)}
       </div>
@@ -415,6 +415,7 @@ function specsHtml(p) {
     ["specTiers", s.tiers && t("tiersVal", s.tiers)],
     ["specPieces", s.pieces && t("piecesVal", s.pieces)],
     ["specWeight", s.weight],
+    ["specComposition", tr(s.composition)],
     ["specCream", tr(s.cream)],
     ["specFilling", tr(s.filling)],
     ["specDecor", tr(s.decor)]
