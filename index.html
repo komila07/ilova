@@ -68,6 +68,13 @@
   .sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 88vh; overflow: auto; background: var(--bg);
     border-radius: 18px 18px 0 0; z-index: 11; display: none; padding-bottom: env(safe-area-inset-bottom); }
   .sheet .pic { aspect-ratio: 4 / 3; font-size: 90px; }
+  .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery .pic { flex: 0 0 100%; scroll-snap-align: start; }
+  .dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; pointer-events: none; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.55); }
+  .dots i.on { background: #fff; }
+  .photos-badge { position: absolute; right: 8px; bottom: 8px; background: rgba(0,0,0,.55); color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 999px; }
   .sheet .add { width: 100%; padding: 12px; }
   .sheet .inner { padding: 14px 16px 18px; }
   .sheet h3 { margin: 0 0 4px; font-size: 19px; }
@@ -263,10 +270,19 @@ fetch("menu.json?v=" + Date.now())
   .then(data => { M = data; init(); })
   .catch(() => { document.body.innerHTML = `<p class="empty">${t("loadErr")}</p>`; });
 
-function pic(p) {
-  return p.image
-    ? `<div class="pic"><img src="${esc(p.image)}" alt="${esc(tr(p.name))}" loading="lazy"></div>`
+const photos = p => p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
+function pic(p, one) {
+  const src = one || photos(p)[0];
+  const badge = !one && photos(p).length > 1 ? `<span class="photos-badge">📷 ${photos(p).length}</span>` : "";
+  return src
+    ? `<div class="pic"><img src="${esc(src)}" alt="${esc(tr(p.name))}" loading="lazy">${badge}</div>`
     : `<div class="pic">${p.emoji || "🍰"}</div>`;
+}
+function gallery(p) {
+  const list = photos(p);
+  if (list.length < 2) return pic(p);
+  return `<div class="gallery" id="gal">${list.map(s => pic(p, s)).join("")}</div>
+    <div class="dots" id="dots">${list.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div>`;
 }
 const prod = id => M.products.find(p => p.id === id);
 const unit = p => tr((M.units || {})[p.unit]) || p.unit;
@@ -375,7 +391,7 @@ function openSheet(id) {
   const tags = p.events.map(eid => M.events.find(e => e.id === eid)).filter(e => e && !e.service)
     .map(e => `<span>${e.emoji} ${esc(tr(e.name))}</span>`).join("");
   $("sheet").innerHTML = `
-    <div style="position:relative">${pic(p)}<button class="close" onclick="closeSheet()">✕</button></div>
+    <div style="position:relative">${gallery(p)}<button class="close" onclick="closeSheet()">✕</button></div>
     <div class="inner">
       <h3>${esc(tr(p.name))}</h3>
       <div class="price"><b>${money(p.price)}</b> / ${esc(unit(p))}</div>
@@ -386,6 +402,11 @@ function openSheet(id) {
       ${controls(p)}
     </div>`;
   $("sheet").style.display = $("sheetBg").style.display = "block";
+  const gal = $("gal");
+  if (gal) gal.onscroll = () => {
+    const i = Math.round(gal.scrollLeft / gal.clientWidth);
+    document.querySelectorAll("#dots i").forEach((d, k) => d.classList.toggle("on", k === i));
+  };
 }
 function specsHtml(p) {
   const s = p.specs;
