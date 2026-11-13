@@ -1,7 +1,7 @@
 {
  "shop": {
   "name": "Magnit tortlari",
-  "phone": "+998 90 000 00 00",
+  "phone": "+998 99 376 26 07",
   "address": {
    "uz": "Toshkent sh., ... ko'chasi, 1-uy",
    "ru": "г. Ташкент, ул. ..., дом 1"
@@ -139,13 +139,6 @@
    }
   },
   {
-   "id": "mevali",
-   "name": {
-    "uz": "🍒 Mevali desertlar",
-    "ru": "🍒 Фруктовые десерты"
-   }
-  },
-  {
    "id": "pirojniy",
    "name": {
     "uz": "🧁 Pirojniylar",
@@ -183,15 +176,8 @@
   {
    "id": "pishiriq",
    "name": {
-    "uz": "🥟 Pishiriqlar",
-    "ru": "🥟 Выпечка"
-   }
-  },
-  {
-   "id": "paxlava",
-   "name": {
-    "uz": "🍯 Paxlava",
-    "ru": "🍯 Пахлава"
+    "uz": "🥟 Dasturxonlik",
+    "ru": "🥟 Для застолья"
    }
   }
  ],
@@ -887,7 +873,7 @@
   },
   {
    "id": "m_xurmo",
-   "category": "mevali",
+   "category": "desert",
    "price": 28000,
    "unit": "dona",
    "events": [
@@ -929,7 +915,7 @@
   },
   {
    "id": "m_olcha",
-   "category": "mevali",
+   "category": "desert",
    "price": 28000,
    "unit": "dona",
    "events": [
@@ -971,7 +957,7 @@
   },
   {
    "id": "m_malina",
-   "category": "mevali",
+   "category": "desert",
    "price": 28000,
    "unit": "dona",
    "events": [
@@ -1013,7 +999,7 @@
   },
   {
    "id": "m_nok",
-   "category": "mevali",
+   "category": "desert",
    "price": 28000,
    "unit": "dona",
    "events": [
@@ -1055,7 +1041,7 @@
   },
   {
    "id": "m_kofe",
-   "category": "mevali",
+   "category": "desert",
    "price": 28000,
    "unit": "dona",
    "events": [
@@ -1098,7 +1084,7 @@
   },
   {
    "id": "m_fistashka",
-   "category": "mevali",
+   "category": "desert",
    "price": 30000,
    "unit": "dona",
    "events": [
@@ -1759,7 +1745,7 @@
   },
   {
    "id": "d_paxlava_arab",
-   "category": "paxlava",
+   "category": "pirojniy",
    "price": 120000,
    "unit": "kg",
    "events": [
@@ -1792,7 +1778,7 @@
   },
   {
    "id": "d_baklava_turk",
-   "category": "paxlava",
+   "category": "pirojniy",
    "price": 150000,
    "unit": "kg",
    "events": [
@@ -1825,7 +1811,7 @@
   },
   {
    "id": "d_muravenik",
-   "category": "paxlava",
+   "category": "pirojniy",
    "price": 5000,
    "unit": "dona",
    "events": [
@@ -1858,7 +1844,7 @@
   },
   {
    "id": "d_paxlava_mini",
-   "category": "paxlava",
+   "category": "pirojniy",
    "price": 100000,
    "unit": "kg",
    "events": [
