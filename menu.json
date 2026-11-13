@@ -1,237 +1,1893 @@
 {
-  "shop": {
-    "name": "Magnit tortlari",
-    "phone": "+998 90 000 00 00",
-    "address": {"uz": "Toshkent sh., ... ko'chasi, 1-uy", "ru": "г. Ташкент, ул. ..., дом 1"},
-    "work_hours": {"uz": "Har kuni 09:00 – 20:00", "ru": "Ежедневно 09:00 – 20:00"},
-    "about": {
-      "uz": "Biz uyda tayyorlangandek mazali tort va shirinliklarni tabiiy mahsulotlardan tayyorlaymiz. To'y, tug'ilgan kun va boshqa bayramlarga buyurtma qabul qilamiz. Dasturxon bezash xizmati ham bor.",
-      "ru": "Мы готовим вкусные домашние торты и сладости из натуральных продуктов. Принимаем заказы на свадьбы, дни рождения и другие праздники. Также оформляем праздничный стол."
-    },
-    "deposit_percent": 30,
-    "min_days_ahead": 1,
-    "payment_methods": ["click", "payme", "cash"]
+ "shop": {
+  "name": "Magnit tortlari",
+  "phone": "+998 90 000 00 00",
+  "address": {
+   "uz": "Toshkent sh., ... ko'chasi, 1-uy",
+   "ru": "г. Ташкент, ул. ..., дом 1"
   },
-  "units": {
-    "kg": {"uz": "kg", "ru": "кг"},
-    "dona": {"uz": "dona", "ru": "шт"},
-    "toplam": {"uz": "to'plam", "ru": "набор"},
-    "xizmat": {"uz": "xizmat", "ru": "услуга"},
-    "patnis": {"uz": "patnis", "ru": "поднос"},
-    "porsiya": {"uz": "porsiya", "ru": "порция"}
+  "work_hours": {
+   "uz": "Har kuni 09:00 – 20:00",
+   "ru": "Ежедневно 09:00 – 20:00"
   },
-  "events": [
-    {"id": "toy", "emoji": "💍", "name": {"uz": "To'y", "ru": "Свадьба"}},
-    {"id": "dasturxon", "emoji": "🍽", "service": true, "name": {"uz": "Dasturxon xizmati", "ru": "Сервировка стола"}},
-    {"id": "tugilgan_kun", "emoji": "🎂", "name": {"uz": "Tug'ilgan kun", "ru": "День рождения"}},
-    {"id": "beshik", "emoji": "👶", "name": {"uz": "Beshik to'y", "ru": "Бешик-той"}},
-    {"id": "sunnat", "emoji": "🎉", "name": {"uz": "Sunnat to'y", "ru": "Суннат-той"}},
-    {"id": "yubiley", "emoji": "🥂", "name": {"uz": "Yubiley", "ru": "Юбилей"}},
-    {"id": "bolalar", "emoji": "🎈", "name": {"uz": "Bolalar bayrami", "ru": "Детский праздник"}},
-    {"id": "korporativ", "emoji": "🏢", "name": {"uz": "Korporativ", "ru": "Корпоратив"}},
-    {"id": "har_kuni", "emoji": "☕", "name": {"uz": "Har kungi", "ru": "На каждый день"}}
-  ],
-  "categories": [
-    {"id": "tort", "name": {"uz": "🎂 Tortlar", "ru": "🎂 Торты"}},
-    {"id": "desert", "name": {"uz": "🍮 Desertlar", "ru": "🍮 Десерты"}},
-    {"id": "mevali", "name": {"uz": "🍒 Mevali desertlar", "ru": "🍒 Фруктовые десерты"}},
-    {"id": "pirojniy", "name": {"uz": "🧁 Pirojniylar", "ru": "🧁 Пирожные"}},
-    {"id": "pechene", "name": {"uz": "🍪 Pechenyelar", "ru": "🍪 Печенье"}},
-    {"id": "toplam", "name": {"uz": "🎁 To'plamlar", "ru": "🎁 Наборы"}},
-    {"id": "dasturxon", "name": {"uz": "🍽 Dasturxon xizmati", "ru": "🍽 Сервировка стола"}},
-    {"id": "salat", "name": {"uz": "🥗 Salatlar", "ru": "🥗 Салаты"}}
-  ],
-  "products": [
-    {"id": "toy1", "category": "tort", "price": 650000, "unit": "dona", "events": ["toy", "yubiley"], "emoji": "👑", "image": "img/toy1.webp", "min_days": 3,
-     "name": {"uz": "«Oltin toj» to'y torti", "ru": "Свадебный торт «Золотая корона»"},
-     "description": {"uz": "Oltin rangli toj, to'r naqshlar va marvaridlar bilan bezatilgan to'rtburchak tort.", "ru": "Прямоугольный торт с золотыми коронами, кружевом и жемчужинами."},
-     "specs": {"tiers": 1, "weight": "5 kg",
-               "cream": {"uz": "Qaymoqli krem (slivochniy)", "ru": "Сливочный крем"},
-               "filling": {"uz": "Vanilli biskvit, qulupnay va qaymoq", "ru": "Ванильный бисквит, клубника и сливки"},
-               "decor": {"uz": "Oltin toj, to'r naqsh, marvaridlar", "ru": "Золотые короны, кружево, жемчуг"}}},
-    {"id": "toy2", "category": "tort", "price": 550000, "unit": "dona", "events": ["toy"], "emoji": "🌸", "image": "img/toy2.webp", "min_days": 3,
-     "name": {"uz": "«Pushti gullar» to'y torti", "ru": "Свадебный торт «Розовые цветы»"},
-     "description": {"uz": "Oq shokolad plastinalari va pushti gullar bilan nafis tort.", "ru": "Нежный торт с пластинами белого шоколада и розовыми цветами."},
-     "specs": {"tiers": 1, "weight": "4 kg",
-               "cream": {"uz": "Krem-chiz", "ru": "Крем-чиз"},
-               "filling": {"uz": "Qizil baxmal (Red Velvet) biskvit", "ru": "Бисквит «Красный бархат»"},
-               "decor": {"uz": "Oq shokolad plastinalari, pushti gullar", "ru": "Пластины белого шоколада, розовые цветы"}}},
-    {"id": "toy3", "category": "tort", "price": 750000, "unit": "dona", "events": ["toy"], "emoji": "💐", "image": "img/toy3.webp", "min_days": 3,
-     "name": {"uz": "«Fotiha muborak» katta tort", "ru": "Большой торт «Фатиха муборак»"},
-     "description": {"uz": "Ko'p mehmonli fotiha va to'ylar uchun katta to'rtburchak tort, yozuvli topper bilan.", "ru": "Большой прямоугольный торт для фатихи и свадеб с топпером-надписью."},
-     "specs": {"tiers": 1, "weight": "6–7 kg",
-               "cream": {"uz": "Qaymoqli krem", "ru": "Сливочный крем"},
-               "filling": {"uz": "Shokoladli biskvit va gilos", "ru": "Шоколадный бисквит и вишня"},
-               "decor": {"uz": "Oq shokolad, atirgullar, «Fotiha muborak» topper", "ru": "Белый шоколад, розы, топпер «Фатиха муборак»"}}},
-    {"id": "toy4", "category": "tort", "price": 700000, "unit": "dona", "events": ["toy"], "emoji": "🤍", "image": "img/toy4.webp", "min_days": 3,
-     "name": {"uz": "«Oq nafosat» to'y torti", "ru": "Свадебный торт «Белая нежность»"},
-     "description": {"uz": "Oppoq gullar va gipsofila bilan bezatilgan baland dumaloq tort. Ismlar harflari qo'yiladi.", "ru": "Высокий круглый торт с белыми цветами и гипсофилой. Инициалы пары."},
-     "specs": {"tiers": 1, "weight": "5 kg",
-               "cream": {"uz": "Maskarpone krem", "ru": "Крем из маскарпоне"},
-               "filling": {"uz": "Vanilli biskvit, malina va maskarpone", "ru": "Ванильный бисквит, малина и маскарпоне"},
-               "decor": {"uz": "Oq gullar, gipsofila, ismlar harflari, topper", "ru": "Белые цветы, гипсофила, инициалы, топпер"}}},
-    {"id": "toy5", "category": "tort", "price": 500000, "unit": "dona", "events": ["toy"], "emoji": "🎁", "image": "img/toy5.webp", "min_days": 2,
-     "name": {"uz": "«Sovg'a qutisida» tort", "ru": "Торт «В подарочной коробке»"},
-     "description": {"uz": "Shaffof sovg'a qutisida, qizil atirgullar bilan. Sovg'a qilish uchun qulay.", "ru": "В прозрачной подарочной коробке, с красными розами. Удобно дарить."},
-     "specs": {"tiers": 1, "weight": "3 kg",
-               "cream": {"uz": "Qaymoqli krem", "ru": "Сливочный крем"},
-               "filling": {"uz": "Yong'oqli karamel va biskvit", "ru": "Бисквит с ореховой карамелью"},
-               "decor": {"uz": "Qizil atirgullar, topper, shaffof quti", "ru": "Красные розы, топпер, прозрачная коробка"}}},
-    {"id": "toy6", "category": "tort", "price": 600000, "unit": "dona", "events": ["toy", "tugilgan_kun", "yubiley"], "emoji": "🍓", "image": "img/toy6.webp", "min_days": 2,
-     "name": {"uz": "«Rezavor mevali» tort", "ru": "Торт «Ягодный»"},
-     "description": {"uz": "Ustida yangi qulupnay, malina va chernika. Oq shokolad va atirgullar bilan.", "ru": "Сверху свежая клубника, малина и черника. С белым шоколадом и розами."},
-     "specs": {"tiers": 1, "weight": "4 kg",
-               "cream": {"uz": "Krem-chiz", "ru": "Крем-чиз"},
-               "filling": {"uz": "Vanilli biskvit va rezavor mevalar", "ru": "Ванильный бисквит и ягоды"},
-               "decor": {"uz": "Yangi rezavor mevalar, oq shokolad, atirgullar", "ru": "Свежие ягоды, белый шоколад, розы"}}},
-    {"id": "toy7", "category": "tort", "price": 580000, "unit": "dona", "events": ["toy", "yubiley"], "emoji": "🌹", "image": "img/toy7.webp", "min_days": 3,
-     "name": {"uz": "«Atirgulli gumbaz» tort", "ru": "Торт «Купол с розами»"},
-     "description": {"uz": "Gumbaz shaklidagi tort, tepasida pushti atirgullar va ismlar harflari.", "ru": "Торт-купол с розовыми розами и инициалами сверху."},
-     "specs": {"tiers": 1, "weight": "4 kg",
-               "cream": {"uz": "Qaymoqli krem", "ru": "Сливочный крем"},
-               "filling": {"uz": "Shokoladli biskvit va banan", "ru": "Шоколадный бисквит и банан"},
-               "decor": {"uz": "Pushti atirgullar, marvaridlar, ismlar harflari", "ru": "Розовые розы, жемчуг, инициалы"}}},
-    {"id": "ds1", "category": "desert", "price": 300000, "unit": "patnis", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍫", "image": "img/desert1.webp", "min_days": 1,
-     "name": {"uz": "Shokoladli profitrol desert", "ru": "Шоколадный десерт с профитролями"},
-     "description": {"uz": "Shokoladli biskvit bo'laklari, ustida profitrol, shokolad va pista.", "ru": "Кусочки шоколадного бисквита с профитролем, шоколадом и фисташкой."},
-     "specs": {"pieces": 30, "weight": "≈ 3 kg",
-               "cream": {"uz": "Shokoladli ganash", "ru": "Шоколадный ганаш"},
-               "filling": {"uz": "Shokoladli biskvit, profitrol ichida qaymoqli krem", "ru": "Шоколадный бисквит, профитроль со сливочным кремом"},
-               "decor": {"uz": "Shokolad, maydalangan pista", "ru": "Шоколад, дроблёная фисташка"}}},
-    {"id": "ds2", "category": "desert", "price": 280000, "unit": "patnis", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍓", "image": "img/desert2.webp", "min_days": 1,
-     "name": {"uz": "Qulupnayli kokos desert", "ru": "Кокосовый десерт с клубникой"},
-     "description": {"uz": "Kokosli bo'laklar, qaymoqli krem va yangi qulupnay. Har biriga qoshiqcha qo'yiladi.", "ru": "Кокосовые кусочки со сливочным кремом и свежей клубникой. С ложечкой на каждом."},
-     "specs": {"pieces": 30, "weight": "≈ 3 kg",
-               "cream": {"uz": "Qaymoqli krem", "ru": "Сливочный крем"},
-               "filling": {"uz": "Biskvit, kokos qirindisi", "ru": "Бисквит, кокосовая стружка"},
-               "decor": {"uz": "Yangi qulupnay, kokos, qoshiqchalar", "ru": "Свежая клубника, кокос, ложечки"}}},
-    {"id": "ds3", "category": "desert", "price": 250000, "unit": "patnis", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍯", "image": "img/desert3.webp", "min_days": 1,
-     "name": {"uz": "Medovik (patnisda)", "ru": "Медовик (на подносе)"},
-     "description": {"uz": "Klassik asalli medovik, bo'laklarga kesib beriladi.", "ru": "Классический медовик, нарезается на кусочки."},
-     "specs": {"pieces": 30, "weight": "≈ 3 kg",
-               "cream": {"uz": "Smetanali krem", "ru": "Сметанный крем"},
-               "filling": {"uz": "Asalli korjlar", "ru": "Медовые коржи"},
-               "decor": {"uz": "Medovik uvoqlari", "ru": "Медовая крошка"}}},
-    {"id": "ds4", "category": "desert", "price": 45000, "unit": "porsiya", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🤍", "image": "img/desert4.webp", "min_days": 1,
-     "name": {"uz": "Profitrol (oq shokoladli)", "ru": "Профитроли в белом шоколаде"},
-     "description": {"uz": "Qaymoqli krem to'ldirilgan profitrollar, oq shokolad, pista va shokolad chiziqlari bilan.", "ru": "Профитроли со сливочным кремом в белом шоколаде, с фисташкой и шоколадом."},
-     "specs": {"pieces": 10,
-               "cream": {"uz": "Oq shokolad", "ru": "Белый шоколад"},
-               "filling": {"uz": "Qaymoqli krem", "ru": "Сливочный крем"},
-               "decor": {"uz": "Pista, shokolad chiziqlari", "ru": "Фисташка, шоколадные полоски"}}},
-    {"id": "ds5", "category": "desert", "price": 220000, "unit": "patnis", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍰", "image": "img/desert5.webp", "min_days": 1,
-     "name": {"uz": "Biskvitli pirojniy (ikki kremli)", "ru": "Бисквитные пирожные (два крема)"},
-     "description": {"uz": "Yumshoq biskvit bo'laklari, oq va shokoladli krem gullari bilan.", "ru": "Нежные бисквитные кусочки с белым и шоколадным кремом."},
-     "specs": {"pieces": 30, "weight": "≈ 2.5 kg",
-               "cream": {"uz": "Qaymoqli va shokoladli krem", "ru": "Сливочный и шоколадный крем"},
-               "filling": {"uz": "Vanilli biskvit", "ru": "Ванильный бисквит"},
-               "decor": {"uz": "Krem gullari, murabbo", "ru": "Кремовые цветы, джем"}}},
-    {"id": "t_bday", "category": "tort", "price": 140000, "unit": "kg", "events": ["tugilgan_kun", "yubiley", "korporativ"], "emoji": "🎂", "image": "", "min_days": 1,
-     "name": {"uz": "Tug'ilgan kun torti (yozuvli)", "ru": "Торт на день рождения (с надписью)"},
-     "description": {"uz": "Ism va yozuv bilan. Shokoladli yoki mevali.", "ru": "С именем и надписью. Шоколадный или фруктовый."}},
-    {"id": "t_kids", "category": "tort", "price": 160000, "unit": "kg", "events": ["bolalar", "tugilgan_kun", "beshik", "sunnat"], "emoji": "🧸", "image": "", "min_days": 2,
-     "name": {"uz": "Bolalar torti (multfilm)", "ru": "Детский торт (мультфильм)"},
-     "description": {"uz": "Bolajonlar sevgan rangli bezaklar bilan.", "ru": "С яркими украшениями, которые любят дети."}},
-    {"id": "t_napoleon", "category": "tort", "price": 120000, "unit": "kg", "events": ["har_kuni", "tugilgan_kun"], "emoji": "🍰", "image": "", "min_days": 0,
-     "name": {"uz": "Napoleon", "ru": "Наполеон"},
-     "description": {"uz": "Qatlamli xamir va qaymoqli krem.", "ru": "Слоёное тесто и заварной крем."}},
-    {"id": "t_medovik", "category": "tort", "price": 110000, "unit": "kg", "events": ["har_kuni", "tugilgan_kun"], "emoji": "🍯", "image": "", "min_days": 0,
-     "name": {"uz": "Medovik", "ru": "Медовик"},
-     "description": {"uz": "Asalli korjlar va smetanali krem.", "ru": "Медовые коржи и сметанный крем."}},
-    {"id": "s_sezar", "category": "salat", "price": 35000, "unit": "porsiya", "events": ["dasturxon", "toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "korporativ", "har_kuni"], "emoji": "🥬", "image": "img/salat_sezar.webp", "min_days": 1,
-     "name": {"uz": "Sezar", "ru": "Цезарь"},
-     "description": {"uz": "Tovuqli sezar: salat bargi, tovuq go'shti, pomidor, tuxum, ustidan mo'l pishloq.", "ru": "Цезарь с курицей: салат, курица, помидоры, яйцо, щедро посыпан сыром."},
-     "specs": {"weight": "≈ 300 g",
-               "composition": {"uz": "Salat bargi, tovuq go'shti, pomidor, tuxum, suxariklar, pishloq, sezar sousi", "ru": "Листья салата, курица, помидоры, яйцо, сухарики, сыр, соус «Цезарь»"}}},
-    {"id": "s_yapon", "category": "salat", "price": 30000, "unit": "porsiya", "events": ["dasturxon", "toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "korporativ", "har_kuni"], "emoji": "🥒", "image": "img/salat_yapon.webp", "min_days": 1,
-     "name": {"uz": "Yaponskiy salat", "ru": "Японский салат"},
-     "description": {"uz": "Mol go'shti, bodring, pomidor va sabzavotlar, kunjut bilan achchiq-shirin sousda.", "ru": "Говядина, огурцы, помидоры и овощи в кисло-сладком соусе с кунжутом."},
-     "specs": {"weight": "≈ 300 g",
-               "composition": {"uz": "Mol go'shti, bodring, pomidor, bulg'or qalampiri, sabzi, ko'katlar, kunjut", "ru": "Говядина, огурцы, помидоры, болгарский перец, морковь, зелень, кунжут"}}},
-    {"id": "s_kfs", "category": "salat", "price": 45000, "unit": "porsiya", "events": ["dasturxon", "toy", "tugilgan_kun", "bolalar", "yubiley", "korporativ", "har_kuni"], "emoji": "🍗", "image": "img/salat_kfs.webp", "min_days": 1,
-     "name": {"uz": "KFS (qarsildoq tovuq)", "ru": "KFS (хрустящая курица)"},
-     "description": {"uz": "Qarsildoq qilib qovurilgan tovuq bo'laklari, salat bargi va pomidor bilan.", "ru": "Хрустящие кусочки курицы во фритюре с листьями салата и помидорами черри."},
-     "specs": {"weight": "≈ 400 g",
-               "composition": {"uz": "Tovuq filesi, maxsus qarsildoq qoplama, salat bargi, cherri pomidor", "ru": "Куриное филе, хрустящая панировка, листья салата, помидоры черри"}}},
-    {"id": "s_norin", "category": "salat", "price": 160000, "unit": "kg", "events": ["dasturxon", "toy", "beshik", "sunnat", "yubiley", "har_kuni"], "emoji": "🍖", "image": "img/salat_norin.webp", "min_days": 1,
-     "name": {"uz": "Norin", "ru": "Нарын"},
-     "description": {"uz": "An'anaviy norin: qazi, ot go'shti va yupqa xamir, chiroyli terib beriladi.", "ru": "Традиционный нарын: казы, конина и тонкое тесто, красиво выложено."},
-     "specs": {"composition": {"uz": "Qazi, ot go'shti, yupqa xamir, piyoz, ziravorlar", "ru": "Казы, конина, тонкое тесто, лук, специи"}}},
-    {"id": "m_xurmo", "category": "mevali", "price": 28000, "unit": "dona", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍑", "image": "img/meva_xurmo.webp", "min_days": 1,
-     "name": {"uz": "Xurmoli desert", "ru": "Десерт «Хурма»"},
-     "description": {"uz": "Xurmo shaklidagi muss desert, ichida xurmo konfiti.", "ru": "Муссовый десерт в форме хурмы с конфитюром из хурмы внутри."},
-     "specs": {"weight": "≈ 120 g",
-               "cream": {"uz": "Qaymoqli muss", "ru": "Сливочный мусс"},
-               "filling": {"uz": "Xurmo konfiti, biskvit", "ru": "Конфитюр из хурмы, бисквит"},
-               "decor": {"uz": "Velur qoplama, shokolad barg", "ru": "Велюровое покрытие, шоколадный лист"}}},
-    {"id": "m_olcha", "category": "mevali", "price": 28000, "unit": "dona", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍒", "image": "img/meva_olcha.webp", "min_days": 1,
-     "name": {"uz": "Olchali desert", "ru": "Десерт «Вишня»"},
-     "description": {"uz": "Qo'shaloq olcha shaklidagi muss desert, ichida olcha.", "ru": "Муссовый десерт в форме двойной вишни с вишней внутри."},
-     "specs": {"weight": "≈ 120 g",
-               "cream": {"uz": "Qaymoqli muss", "ru": "Сливочный мусс"},
-               "filling": {"uz": "Olcha konfiti, biskvit", "ru": "Вишнёвый конфитюр, бисквит"},
-               "decor": {"uz": "Yaltiroq qizil glazur, shokolad barg", "ru": "Красная глазурь, шоколадный лист"}}},
-    {"id": "m_malina", "category": "mevali", "price": 28000, "unit": "dona", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🫐", "image": "img/meva_malina.webp", "min_days": 1,
-     "name": {"uz": "Malinali desert", "ru": "Десерт «Малина»"},
-     "description": {"uz": "Malina shaklidagi muss desert, ichida malina.", "ru": "Муссовый десерт в форме малины с малиной внутри."},
-     "specs": {"weight": "≈ 110 g",
-               "cream": {"uz": "Qaymoqli muss", "ru": "Сливочный мусс"},
-               "filling": {"uz": "Malina konfiti, biskvit", "ru": "Малиновый конфитюр, бисквит"},
-               "decor": {"uz": "Velur qoplama", "ru": "Велюровое покрытие"}}},
-    {"id": "m_nok", "category": "mevali", "price": 28000, "unit": "dona", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍐", "image": "img/meva_nok.webp", "min_days": 1,
-     "name": {"uz": "Nokli desert", "ru": "Десерт «Груша»"},
-     "description": {"uz": "Nok shaklidagi muss desert, ichida nok.", "ru": "Муссовый десерт в форме груши с грушей внутри."},
-     "specs": {"weight": "≈ 130 g",
-               "cream": {"uz": "Qaymoqli muss", "ru": "Сливочный мусс"},
-               "filling": {"uz": "Nok konfiti, biskvit", "ru": "Грушевый конфитюр, бисквит"},
-               "decor": {"uz": "Sariq-qizg'ish qoplama, shokolad barg", "ru": "Жёлто-розовое покрытие, шоколадный лист"}}},
-    {"id": "m_kofe", "category": "mevali", "price": 28000, "unit": "dona", "events": ["toy", "tugilgan_kun", "yubiley", "korporativ", "har_kuni"], "emoji": "☕", "image": "img/meva_kofe.webp", "images": ["img/meva_kofe.webp", "img/meva_mix.webp"], "min_days": 1,
-     "name": {"uz": "Kofeli desert", "ru": "Кофейный десерт"},
-     "description": {"uz": "Kofe doni shaklidagi muss desert, kofe va shokolad ta'mi bilan.", "ru": "Муссовый десерт в форме кофейного зерна со вкусом кофе и шоколада."},
-     "specs": {"weight": "≈ 120 g",
-               "cream": {"uz": "Kofeli muss", "ru": "Кофейный мусс"},
-               "filling": {"uz": "Shokoladli biskvit, karamel", "ru": "Шоколадный бисквит, карамель"},
-               "decor": {"uz": "Shokoladli qoplama", "ru": "Шоколадное покрытие"}}},
-    {"id": "m_fistashka", "category": "mevali", "price": 30000, "unit": "dona", "events": ["toy", "tugilgan_kun", "yubiley", "korporativ", "har_kuni"], "emoji": "🥜", "image": "img/meva_fistashka.webp", "images": ["img/meva_fistashka.webp", "img/meva_mix.webp"], "min_days": 1,
-     "name": {"uz": "Fistashkali desert", "ru": "Фисташковый десерт"},
-     "description": {"uz": "Fistashka shaklidagi muss desert, fistashka kremi bilan.", "ru": "Муссовый десерт в форме фисташки с фисташковым кремом."},
-     "specs": {"weight": "≈ 130 g",
-               "cream": {"uz": "Fistashkali muss", "ru": "Фисташковый мусс"},
-               "filling": {"uz": "Fistashka kremi, malina, biskvit", "ru": "Фисташковый крем, малина, бисквит"},
-               "decor": {"uz": "Yashil-pushti qoplama", "ru": "Зелёно-розовое покрытие"}}},
-    {"id": "p_tvorog", "category": "pirojniy", "price": 15000, "unit": "dona", "events": ["toy", "tugilgan_kun", "beshik", "sunnat", "yubiley", "bolalar", "korporativ", "har_kuni"], "emoji": "🍰", "image": "img/tvorog1.webp", "images": ["img/tvorog1.webp", "img/tvorog2.webp"], "min_days": 0,
-     "name": {"uz": "Tvorojniy", "ru": "Творожное пирожное"},
-     "description": {"uz": "3 qavatli yumshoq biskvit, qaymoqli tvorogli krem va orasida malina. Usti kokos qirindisi bilan.", "ru": "Нежный бисквит в 3 слоя, сливочно-творожный крем и малина между слоями. Сверху кокосовая стружка."},
-     "specs": {"tiers": 3,
-               "cream": {"uz": "Qaymoqli tvorogli krem", "ru": "Сливочно-творожный крем"},
-               "filling": {"uz": "Biskvit, qavatlar orasida malina", "ru": "Бисквит, малина между слоями"},
-               "decor": {"uz": "Kokos qirindisi, qaymoq gullari, murabbo", "ru": "Кокосовая стружка, кремовые розочки, джем"}}},
-    {"id": "p_ekler", "category": "pirojniy", "price": 12000, "unit": "dona", "events": ["har_kuni", "korporativ", "toy"], "emoji": "🥖", "image": "", "min_days": 0,
-     "name": {"uz": "Ekler", "ru": "Эклер"},
-     "description": {"uz": "Qaymoqli krem bilan.", "ru": "Со сливочным кремом."}},
-    {"id": "p_kapkeyk", "category": "pirojniy", "price": 15000, "unit": "dona", "events": ["bolalar", "tugilgan_kun", "beshik"], "emoji": "🧁", "image": "", "min_days": 0,
-     "name": {"uz": "Kapkeyk", "ru": "Капкейк"},
-     "description": {"uz": "Kremli, rangli bezakli kapkeyk.", "ru": "Капкейк с кремом и ярким декором."}},
-    {"id": "p_makaron", "category": "pirojniy", "price": 9000, "unit": "dona", "events": ["toy", "yubiley", "korporativ"], "emoji": "🍬", "image": "", "min_days": 1,
-     "name": {"uz": "Makaron", "ru": "Макарон"},
-     "description": {"uz": "Fransuz makaroni, turli ta'mlar.", "ru": "Французские макарон, разные вкусы."}},
-    {"id": "c_uy", "category": "pechene", "price": 60000, "unit": "kg", "events": ["har_kuni", "beshik", "sunnat"], "emoji": "🍪", "image": "", "min_days": 0,
-     "name": {"uz": "Uy pechenyesi", "ru": "Домашнее печенье"},
-     "description": {"uz": "Sariyog'li pechenye.", "ru": "Песочное печенье на сливочном масле."}},
-    {"id": "s_dastur", "category": "toplam", "price": 900000, "unit": "toplam", "events": ["toy", "sunnat", "beshik", "yubiley"], "emoji": "🎁", "image": "", "min_days": 3,
-     "name": {"uz": "Shirinliklar to'plami (30 kishilik)", "ru": "Набор сладостей (на 30 персон)"},
-     "description": {"uz": "Pirojniy, pechenye, makaron va mini desertlar — bayram dasturxoni uchun.", "ru": "Пирожные, печенье, макарон и мини-десерты для праздничного стола."}},
-    {"id": "s_candy", "category": "toplam", "price": 1500000, "unit": "toplam", "events": ["toy", "bolalar", "tugilgan_kun", "korporativ"], "emoji": "🍭", "image": "", "min_days": 4,
-     "name": {"uz": "Candy bar (shirinlik stoli)", "ru": "Кэнди-бар (сладкий стол)"},
-     "description": {"uz": "Bezatilgan shirinlik stoli: tort, kapkeyk, makaron, keyk-poplar.", "ru": "Оформленный сладкий стол: торт, капкейки, макарон, кейк-попсы."}},
-    {"id": "d_20", "category": "dasturxon", "price": 500000, "unit": "xizmat", "events": ["dasturxon", "toy", "sunnat", "beshik", "yubiley", "tugilgan_kun", "korporativ"], "emoji": "🍽", "image": "", "min_days": 3,
-     "name": {"uz": "Dasturxon bezash (20 kishilik)", "ru": "Сервировка стола (на 20 персон)"},
-     "description": {"uz": "Dasturxonni bezash, idish-tovoq, shirinlik va mevalarni chiroyli terib berish. Joyiga borib tayyorlaymiz.", "ru": "Оформление стола, посуда, красивая выкладка сладостей и фруктов. Выезжаем на место."}},
-    {"id": "d_50", "category": "dasturxon", "price": 1000000, "unit": "xizmat", "events": ["dasturxon", "toy", "sunnat", "beshik", "yubiley", "korporativ"], "emoji": "🍽", "image": "", "min_days": 3,
-     "name": {"uz": "Dasturxon bezash (50 kishilik)", "ru": "Сервировка стола (на 50 персон)"},
-     "description": {"uz": "Katta bayramlar uchun: dasturxon bezagi, idish-tovoq va xizmat ko'rsatish.", "ru": "Для больших праздников: оформление стола, посуда и обслуживание."}},
-    {"id": "d_100", "category": "dasturxon", "price": 1800000, "unit": "xizmat", "events": ["dasturxon", "toy", "sunnat", "yubiley", "korporativ"], "emoji": "🍽", "image": "", "min_days": 5,
-     "name": {"uz": "Dasturxon bezash (100 kishilik)", "ru": "Сервировка стола (на 100 персон)"},
-     "description": {"uz": "To'y va katta tadbirlar uchun to'liq dasturxon xizmati.", "ru": "Полное оформление стола для свадеб и крупных мероприятий."}}
+  "about": {
+   "uz": "Biz uyda tayyorlangandek mazali tort va shirinliklarni tabiiy mahsulotlardan tayyorlaymiz. To'y, tug'ilgan kun va boshqa bayramlarga buyurtma qabul qilamiz. Dasturxon bezash xizmati ham bor.",
+   "ru": "Мы готовим вкусные домашние торты и сладости из натуральных продуктов. Принимаем заказы на свадьбы, дни рождения и другие праздники. Также оформляем праздничный стол."
+  },
+  "deposit_percent": 30,
+  "min_days_ahead": 1,
+  "payment_methods": [
+   "click",
+   "payme",
+   "cash"
   ]
+ },
+ "units": {
+  "kg": {
+   "uz": "kg",
+   "ru": "кг"
+  },
+  "dona": {
+   "uz": "dona",
+   "ru": "шт"
+  },
+  "toplam": {
+   "uz": "to'plam",
+   "ru": "набор"
+  },
+  "xizmat": {
+   "uz": "xizmat",
+   "ru": "услуга"
+  },
+  "patnis": {
+   "uz": "patnis",
+   "ru": "поднос"
+  },
+  "porsiya": {
+   "uz": "porsiya",
+   "ru": "порция"
+  }
+ },
+ "events": [
+  {
+   "id": "toy",
+   "emoji": "💍",
+   "name": {
+    "uz": "To'y",
+    "ru": "Свадьба"
+   }
+  },
+  {
+   "id": "dasturxon",
+   "emoji": "🍽",
+   "service": true,
+   "name": {
+    "uz": "Dasturxon xizmati",
+    "ru": "Сервировка стола"
+   }
+  },
+  {
+   "id": "tugilgan_kun",
+   "emoji": "🎂",
+   "name": {
+    "uz": "Tug'ilgan kun",
+    "ru": "День рождения"
+   }
+  },
+  {
+   "id": "beshik",
+   "emoji": "👶",
+   "name": {
+    "uz": "Beshik to'y",
+    "ru": "Бешик-той"
+   }
+  },
+  {
+   "id": "sunnat",
+   "emoji": "🎉",
+   "name": {
+    "uz": "Sunnat to'y",
+    "ru": "Суннат-той"
+   }
+  },
+  {
+   "id": "yubiley",
+   "emoji": "🥂",
+   "name": {
+    "uz": "Yubiley",
+    "ru": "Юбилей"
+   }
+  },
+  {
+   "id": "bolalar",
+   "emoji": "🎈",
+   "name": {
+    "uz": "Bolalar bayrami",
+    "ru": "Детский праздник"
+   }
+  },
+  {
+   "id": "korporativ",
+   "emoji": "🏢",
+   "name": {
+    "uz": "Korporativ",
+    "ru": "Корпоратив"
+   }
+  },
+  {
+   "id": "har_kuni",
+   "emoji": "☕",
+   "name": {
+    "uz": "Har kungi",
+    "ru": "На каждый день"
+   }
+  }
+ ],
+ "categories": [
+  {
+   "id": "tort",
+   "name": {
+    "uz": "🎂 Tortlar",
+    "ru": "🎂 Торты"
+   }
+  },
+  {
+   "id": "desert",
+   "name": {
+    "uz": "🍮 Desertlar",
+    "ru": "🍮 Десерты"
+   }
+  },
+  {
+   "id": "mevali",
+   "name": {
+    "uz": "🍒 Mevali desertlar",
+    "ru": "🍒 Фруктовые десерты"
+   }
+  },
+  {
+   "id": "pirojniy",
+   "name": {
+    "uz": "🧁 Pirojniylar",
+    "ru": "🧁 Пирожные"
+   }
+  },
+  {
+   "id": "pechene",
+   "name": {
+    "uz": "🍪 Pechenyelar",
+    "ru": "🍪 Печенье"
+   }
+  },
+  {
+   "id": "toplam",
+   "name": {
+    "uz": "🎁 To'plamlar",
+    "ru": "🎁 Наборы"
+   }
+  },
+  {
+   "id": "dasturxon",
+   "name": {
+    "uz": "🍽 Dasturxon xizmati",
+    "ru": "🍽 Сервировка стола"
+   }
+  },
+  {
+   "id": "salat",
+   "name": {
+    "uz": "🥗 Salatlar",
+    "ru": "🥗 Салаты"
+   }
+  },
+  {
+   "id": "pishiriq",
+   "name": {
+    "uz": "🥟 Pishiriqlar",
+    "ru": "🥟 Выпечка"
+   }
+  },
+  {
+   "id": "paxlava",
+   "name": {
+    "uz": "🍯 Paxlava",
+    "ru": "🍯 Пахлава"
+   }
+  }
+ ],
+ "products": [
+  {
+   "id": "toy1",
+   "category": "tort",
+   "price": 650000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "yubiley"
+   ],
+   "emoji": "👑",
+   "image": "img/toy1.webp",
+   "min_days": 3,
+   "name": {
+    "uz": "«Oltin toj» to'y torti",
+    "ru": "Свадебный торт «Золотая корона»"
+   },
+   "description": {
+    "uz": "Oltin rangli toj, to'r naqshlar va marvaridlar bilan bezatilgan to'rtburchak tort.",
+    "ru": "Прямоугольный торт с золотыми коронами, кружевом и жемчужинами."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "5 kg",
+    "cream": {
+     "uz": "Qaymoqli krem (slivochniy)",
+     "ru": "Сливочный крем"
+    },
+    "filling": {
+     "uz": "Vanilli biskvit, qulupnay va qaymoq",
+     "ru": "Ванильный бисквит, клубника и сливки"
+    },
+    "decor": {
+     "uz": "Oltin toj, to'r naqsh, marvaridlar",
+     "ru": "Золотые короны, кружево, жемчуг"
+    }
+   }
+  },
+  {
+   "id": "toy2",
+   "category": "tort",
+   "price": 550000,
+   "unit": "dona",
+   "events": [
+    "toy"
+   ],
+   "emoji": "🌸",
+   "image": "img/toy2.webp",
+   "min_days": 3,
+   "name": {
+    "uz": "«Pushti gullar» to'y torti",
+    "ru": "Свадебный торт «Розовые цветы»"
+   },
+   "description": {
+    "uz": "Oq shokolad plastinalari va pushti gullar bilan nafis tort.",
+    "ru": "Нежный торт с пластинами белого шоколада и розовыми цветами."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "4 kg",
+    "cream": {
+     "uz": "Krem-chiz",
+     "ru": "Крем-чиз"
+    },
+    "filling": {
+     "uz": "Qizil baxmal (Red Velvet) biskvit",
+     "ru": "Бисквит «Красный бархат»"
+    },
+    "decor": {
+     "uz": "Oq shokolad plastinalari, pushti gullar",
+     "ru": "Пластины белого шоколада, розовые цветы"
+    }
+   }
+  },
+  {
+   "id": "toy3",
+   "category": "tort",
+   "price": 750000,
+   "unit": "dona",
+   "events": [
+    "toy"
+   ],
+   "emoji": "💐",
+   "image": "img/toy3.webp",
+   "min_days": 3,
+   "name": {
+    "uz": "«Fotiha muborak» katta tort",
+    "ru": "Большой торт «Фатиха муборак»"
+   },
+   "description": {
+    "uz": "Ko'p mehmonli fotiha va to'ylar uchun katta to'rtburchak tort, yozuvli topper bilan.",
+    "ru": "Большой прямоугольный торт для фатихи и свадеб с топпером-надписью."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "6–7 kg",
+    "cream": {
+     "uz": "Qaymoqli krem",
+     "ru": "Сливочный крем"
+    },
+    "filling": {
+     "uz": "Shokoladli biskvit va gilos",
+     "ru": "Шоколадный бисквит и вишня"
+    },
+    "decor": {
+     "uz": "Oq shokolad, atirgullar, «Fotiha muborak» topper",
+     "ru": "Белый шоколад, розы, топпер «Фатиха муборак»"
+    }
+   }
+  },
+  {
+   "id": "toy4",
+   "category": "tort",
+   "price": 700000,
+   "unit": "dona",
+   "events": [
+    "toy"
+   ],
+   "emoji": "🤍",
+   "image": "img/toy4.webp",
+   "min_days": 3,
+   "name": {
+    "uz": "«Oq nafosat» to'y torti",
+    "ru": "Свадебный торт «Белая нежность»"
+   },
+   "description": {
+    "uz": "Oppoq gullar va gipsofila bilan bezatilgan baland dumaloq tort. Ismlar harflari qo'yiladi.",
+    "ru": "Высокий круглый торт с белыми цветами и гипсофилой. Инициалы пары."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "5 kg",
+    "cream": {
+     "uz": "Maskarpone krem",
+     "ru": "Крем из маскарпоне"
+    },
+    "filling": {
+     "uz": "Vanilli biskvit, malina va maskarpone",
+     "ru": "Ванильный бисквит, малина и маскарпоне"
+    },
+    "decor": {
+     "uz": "Oq gullar, gipsofila, ismlar harflari, topper",
+     "ru": "Белые цветы, гипсофила, инициалы, топпер"
+    }
+   }
+  },
+  {
+   "id": "toy5",
+   "category": "tort",
+   "price": 500000,
+   "unit": "dona",
+   "events": [
+    "toy"
+   ],
+   "emoji": "🎁",
+   "image": "img/toy5.webp",
+   "min_days": 2,
+   "name": {
+    "uz": "«Sovg'a qutisida» tort",
+    "ru": "Торт «В подарочной коробке»"
+   },
+   "description": {
+    "uz": "Shaffof sovg'a qutisida, qizil atirgullar bilan. Sovg'a qilish uchun qulay.",
+    "ru": "В прозрачной подарочной коробке, с красными розами. Удобно дарить."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "3 kg",
+    "cream": {
+     "uz": "Qaymoqli krem",
+     "ru": "Сливочный крем"
+    },
+    "filling": {
+     "uz": "Yong'oqli karamel va biskvit",
+     "ru": "Бисквит с ореховой карамелью"
+    },
+    "decor": {
+     "uz": "Qizil atirgullar, topper, shaffof quti",
+     "ru": "Красные розы, топпер, прозрачная коробка"
+    }
+   }
+  },
+  {
+   "id": "toy6",
+   "category": "tort",
+   "price": 600000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "yubiley"
+   ],
+   "emoji": "🍓",
+   "image": "img/toy6.webp",
+   "min_days": 2,
+   "name": {
+    "uz": "«Rezavor mevali» tort",
+    "ru": "Торт «Ягодный»"
+   },
+   "description": {
+    "uz": "Ustida yangi qulupnay, malina va chernika. Oq shokolad va atirgullar bilan.",
+    "ru": "Сверху свежая клубника, малина и черника. С белым шоколадом и розами."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "4 kg",
+    "cream": {
+     "uz": "Krem-chiz",
+     "ru": "Крем-чиз"
+    },
+    "filling": {
+     "uz": "Vanilli biskvit va rezavor mevalar",
+     "ru": "Ванильный бисквит и ягоды"
+    },
+    "decor": {
+     "uz": "Yangi rezavor mevalar, oq shokolad, atirgullar",
+     "ru": "Свежие ягоды, белый шоколад, розы"
+    }
+   }
+  },
+  {
+   "id": "toy7",
+   "category": "tort",
+   "price": 580000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "yubiley"
+   ],
+   "emoji": "🌹",
+   "image": "img/toy7.webp",
+   "min_days": 3,
+   "name": {
+    "uz": "«Atirgulli gumbaz» tort",
+    "ru": "Торт «Купол с розами»"
+   },
+   "description": {
+    "uz": "Gumbaz shaklidagi tort, tepasida pushti atirgullar va ismlar harflari.",
+    "ru": "Торт-купол с розовыми розами и инициалами сверху."
+   },
+   "specs": {
+    "tiers": 1,
+    "weight": "4 kg",
+    "cream": {
+     "uz": "Qaymoqli krem",
+     "ru": "Сливочный крем"
+    },
+    "filling": {
+     "uz": "Shokoladli biskvit va banan",
+     "ru": "Шоколадный бисквит и банан"
+    },
+    "decor": {
+     "uz": "Pushti atirgullar, marvaridlar, ismlar harflari",
+     "ru": "Розовые розы, жемчуг, инициалы"
+    }
+   }
+  },
+  {
+   "id": "ds1",
+   "category": "desert",
+   "price": 300000,
+   "unit": "patnis",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍫",
+   "image": "img/desert1.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Shokoladli profitrol desert",
+    "ru": "Шоколадный десерт с профитролями"
+   },
+   "description": {
+    "uz": "Shokoladli biskvit bo'laklari, ustida profitrol, shokolad va pista.",
+    "ru": "Кусочки шоколадного бисквита с профитролем, шоколадом и фисташкой."
+   },
+   "specs": {
+    "pieces": 30,
+    "weight": "≈ 3 kg",
+    "cream": {
+     "uz": "Shokoladli ganash",
+     "ru": "Шоколадный ганаш"
+    },
+    "filling": {
+     "uz": "Shokoladli biskvit, profitrol ichida qaymoqli krem",
+     "ru": "Шоколадный бисквит, профитроль со сливочным кремом"
+    },
+    "decor": {
+     "uz": "Shokolad, maydalangan pista",
+     "ru": "Шоколад, дроблёная фисташка"
+    }
+   }
+  },
+  {
+   "id": "ds2",
+   "category": "desert",
+   "price": 280000,
+   "unit": "patnis",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍓",
+   "image": "img/desert2.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Qulupnayli kokos desert",
+    "ru": "Кокосовый десерт с клубникой"
+   },
+   "description": {
+    "uz": "Kokosli bo'laklar, qaymoqli krem va yangi qulupnay. Har biriga qoshiqcha qo'yiladi.",
+    "ru": "Кокосовые кусочки со сливочным кремом и свежей клубникой. С ложечкой на каждом."
+   },
+   "specs": {
+    "pieces": 30,
+    "weight": "≈ 3 kg",
+    "cream": {
+     "uz": "Qaymoqli krem",
+     "ru": "Сливочный крем"
+    },
+    "filling": {
+     "uz": "Biskvit, kokos qirindisi",
+     "ru": "Бисквит, кокосовая стружка"
+    },
+    "decor": {
+     "uz": "Yangi qulupnay, kokos, qoshiqchalar",
+     "ru": "Свежая клубника, кокос, ложечки"
+    }
+   }
+  },
+  {
+   "id": "ds3",
+   "category": "desert",
+   "price": 250000,
+   "unit": "patnis",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍯",
+   "image": "img/desert3.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Medovik (patnisda)",
+    "ru": "Медовик (на подносе)"
+   },
+   "description": {
+    "uz": "Klassik asalli medovik, bo'laklarga kesib beriladi.",
+    "ru": "Классический медовик, нарезается на кусочки."
+   },
+   "specs": {
+    "pieces": 30,
+    "weight": "≈ 3 kg",
+    "cream": {
+     "uz": "Smetanali krem",
+     "ru": "Сметанный крем"
+    },
+    "filling": {
+     "uz": "Asalli korjlar",
+     "ru": "Медовые коржи"
+    },
+    "decor": {
+     "uz": "Medovik uvoqlari",
+     "ru": "Медовая крошка"
+    }
+   }
+  },
+  {
+   "id": "ds4",
+   "category": "desert",
+   "price": 45000,
+   "unit": "porsiya",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🤍",
+   "image": "img/desert4.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Profitrol (oq shokoladli)",
+    "ru": "Профитроли в белом шоколаде"
+   },
+   "description": {
+    "uz": "Qaymoqli krem to'ldirilgan profitrollar, oq shokolad, pista va shokolad chiziqlari bilan.",
+    "ru": "Профитроли со сливочным кремом в белом шоколаде, с фисташкой и шоколадом."
+   },
+   "specs": {
+    "pieces": 10,
+    "cream": {
+     "uz": "Oq shokolad",
+     "ru": "Белый шоколад"
+    },
+    "filling": {
+     "uz": "Qaymoqli krem",
+     "ru": "Сливочный крем"
+    },
+    "decor": {
+     "uz": "Pista, shokolad chiziqlari",
+     "ru": "Фисташка, шоколадные полоски"
+    }
+   }
+  },
+  {
+   "id": "ds5",
+   "category": "desert",
+   "price": 220000,
+   "unit": "patnis",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍰",
+   "image": "img/desert5.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Biskvitli pirojniy (ikki kremli)",
+    "ru": "Бисквитные пирожные (два крема)"
+   },
+   "description": {
+    "uz": "Yumshoq biskvit bo'laklari, oq va shokoladli krem gullari bilan.",
+    "ru": "Нежные бисквитные кусочки с белым и шоколадным кремом."
+   },
+   "specs": {
+    "pieces": 30,
+    "weight": "≈ 2.5 kg",
+    "cream": {
+     "uz": "Qaymoqli va shokoladli krem",
+     "ru": "Сливочный и шоколадный крем"
+    },
+    "filling": {
+     "uz": "Vanilli biskvit",
+     "ru": "Ванильный бисквит"
+    },
+    "decor": {
+     "uz": "Krem gullari, murabbo",
+     "ru": "Кремовые цветы, джем"
+    }
+   }
+  },
+  {
+   "id": "t_bday",
+   "category": "tort",
+   "price": 140000,
+   "unit": "kg",
+   "events": [
+    "tugilgan_kun",
+    "yubiley",
+    "korporativ"
+   ],
+   "emoji": "🎂",
+   "image": "",
+   "min_days": 1,
+   "name": {
+    "uz": "Tug'ilgan kun torti (yozuvli)",
+    "ru": "Торт на день рождения (с надписью)"
+   },
+   "description": {
+    "uz": "Ism va yozuv bilan. Shokoladli yoki mevali.",
+    "ru": "С именем и надписью. Шоколадный или фруктовый."
+   }
+  },
+  {
+   "id": "t_kids",
+   "category": "tort",
+   "price": 160000,
+   "unit": "kg",
+   "events": [
+    "bolalar",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat"
+   ],
+   "emoji": "🧸",
+   "image": "",
+   "min_days": 2,
+   "name": {
+    "uz": "Bolalar torti (multfilm)",
+    "ru": "Детский торт (мультфильм)"
+   },
+   "description": {
+    "uz": "Bolajonlar sevgan rangli bezaklar bilan.",
+    "ru": "С яркими украшениями, которые любят дети."
+   }
+  },
+  {
+   "id": "t_napoleon",
+   "category": "tort",
+   "price": 120000,
+   "unit": "kg",
+   "events": [
+    "har_kuni",
+    "tugilgan_kun"
+   ],
+   "emoji": "🍰",
+   "image": "",
+   "min_days": 0,
+   "name": {
+    "uz": "Napoleon",
+    "ru": "Наполеон"
+   },
+   "description": {
+    "uz": "Qatlamli xamir va qaymoqli krem.",
+    "ru": "Слоёное тесто и заварной крем."
+   }
+  },
+  {
+   "id": "t_medovik",
+   "category": "tort",
+   "price": 110000,
+   "unit": "kg",
+   "events": [
+    "har_kuni",
+    "tugilgan_kun"
+   ],
+   "emoji": "🍯",
+   "image": "",
+   "min_days": 0,
+   "name": {
+    "uz": "Medovik",
+    "ru": "Медовик"
+   },
+   "description": {
+    "uz": "Asalli korjlar va smetanali krem.",
+    "ru": "Медовые коржи и сметанный крем."
+   }
+  },
+  {
+   "id": "s_sezar",
+   "category": "salat",
+   "price": 35000,
+   "unit": "porsiya",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥬",
+   "image": "img/salat_sezar.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Sezar",
+    "ru": "Цезарь"
+   },
+   "description": {
+    "uz": "Tovuqli sezar: salat bargi, tovuq go'shti, pomidor, tuxum, ustidan mo'l pishloq.",
+    "ru": "Цезарь с курицей: салат, курица, помидоры, яйцо, щедро посыпан сыром."
+   },
+   "specs": {
+    "weight": "≈ 300 g",
+    "composition": {
+     "uz": "Salat bargi, tovuq go'shti, pomidor, tuxum, suxariklar, pishloq, sezar sousi",
+     "ru": "Листья салата, курица, помидоры, яйцо, сухарики, сыр, соус «Цезарь»"
+    }
+   }
+  },
+  {
+   "id": "s_yapon",
+   "category": "salat",
+   "price": 30000,
+   "unit": "porsiya",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥒",
+   "image": "img/salat_yapon.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Yaponskiy salat",
+    "ru": "Японский салат"
+   },
+   "description": {
+    "uz": "Mol go'shti, bodring, pomidor va sabzavotlar, kunjut bilan achchiq-shirin sousda.",
+    "ru": "Говядина, огурцы, помидоры и овощи в кисло-сладком соусе с кунжутом."
+   },
+   "specs": {
+    "weight": "≈ 300 g",
+    "composition": {
+     "uz": "Mol go'shti, bodring, pomidor, bulg'or qalampiri, sabzi, ko'katlar, kunjut",
+     "ru": "Говядина, огурцы, помидоры, болгарский перец, морковь, зелень, кунжут"
+    }
+   }
+  },
+  {
+   "id": "s_kfs",
+   "category": "salat",
+   "price": 45000,
+   "unit": "porsiya",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "bolalar",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍗",
+   "image": "img/salat_kfs.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "KFS (qarsildoq tovuq)",
+    "ru": "KFS (хрустящая курица)"
+   },
+   "description": {
+    "uz": "Qarsildoq qilib qovurilgan tovuq bo'laklari, salat bargi va pomidor bilan.",
+    "ru": "Хрустящие кусочки курицы во фритюре с листьями салата и помидорами черри."
+   },
+   "specs": {
+    "weight": "≈ 400 g",
+    "composition": {
+     "uz": "Tovuq filesi, maxsus qarsildoq qoplama, salat bargi, cherri pomidor",
+     "ru": "Куриное филе, хрустящая панировка, листья салата, помидоры черри"
+    }
+   }
+  },
+  {
+   "id": "s_norin",
+   "category": "salat",
+   "price": 160000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "har_kuni"
+   ],
+   "emoji": "🍖",
+   "image": "img/salat_norin.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Norin",
+    "ru": "Нарын"
+   },
+   "description": {
+    "uz": "An'anaviy norin: qazi, ot go'shti va yupqa xamir, chiroyli terib beriladi.",
+    "ru": "Традиционный нарын: казы, конина и тонкое тесто, красиво выложено."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qazi, ot go'shti, yupqa xamir, piyoz, ziravorlar",
+     "ru": "Казы, конина, тонкое тесто, лук, специи"
+    }
+   }
+  },
+  {
+   "id": "m_xurmo",
+   "category": "mevali",
+   "price": 28000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍑",
+   "image": "img/meva_xurmo.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Xurmoli desert",
+    "ru": "Десерт «Хурма»"
+   },
+   "description": {
+    "uz": "Xurmo shaklidagi muss desert, ichida xurmo konfiti.",
+    "ru": "Муссовый десерт в форме хурмы с конфитюром из хурмы внутри."
+   },
+   "specs": {
+    "weight": "≈ 120 g",
+    "cream": {
+     "uz": "Qaymoqli muss",
+     "ru": "Сливочный мусс"
+    },
+    "filling": {
+     "uz": "Xurmo konfiti, biskvit",
+     "ru": "Конфитюр из хурмы, бисквит"
+    },
+    "decor": {
+     "uz": "Velur qoplama, shokolad barg",
+     "ru": "Велюровое покрытие, шоколадный лист"
+    }
+   }
+  },
+  {
+   "id": "m_olcha",
+   "category": "mevali",
+   "price": 28000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍒",
+   "image": "img/meva_olcha.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Olchali desert",
+    "ru": "Десерт «Вишня»"
+   },
+   "description": {
+    "uz": "Qo'shaloq olcha shaklidagi muss desert, ichida olcha.",
+    "ru": "Муссовый десерт в форме двойной вишни с вишней внутри."
+   },
+   "specs": {
+    "weight": "≈ 120 g",
+    "cream": {
+     "uz": "Qaymoqli muss",
+     "ru": "Сливочный мусс"
+    },
+    "filling": {
+     "uz": "Olcha konfiti, biskvit",
+     "ru": "Вишнёвый конфитюр, бисквит"
+    },
+    "decor": {
+     "uz": "Yaltiroq qizil glazur, shokolad barg",
+     "ru": "Красная глазурь, шоколадный лист"
+    }
+   }
+  },
+  {
+   "id": "m_malina",
+   "category": "mevali",
+   "price": 28000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🫐",
+   "image": "img/meva_malina.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Malinali desert",
+    "ru": "Десерт «Малина»"
+   },
+   "description": {
+    "uz": "Malina shaklidagi muss desert, ichida malina.",
+    "ru": "Муссовый десерт в форме малины с малиной внутри."
+   },
+   "specs": {
+    "weight": "≈ 110 g",
+    "cream": {
+     "uz": "Qaymoqli muss",
+     "ru": "Сливочный мусс"
+    },
+    "filling": {
+     "uz": "Malina konfiti, biskvit",
+     "ru": "Малиновый конфитюр, бисквит"
+    },
+    "decor": {
+     "uz": "Velur qoplama",
+     "ru": "Велюровое покрытие"
+    }
+   }
+  },
+  {
+   "id": "m_nok",
+   "category": "mevali",
+   "price": 28000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍐",
+   "image": "img/meva_nok.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Nokli desert",
+    "ru": "Десерт «Груша»"
+   },
+   "description": {
+    "uz": "Nok shaklidagi muss desert, ichida nok.",
+    "ru": "Муссовый десерт в форме груши с грушей внутри."
+   },
+   "specs": {
+    "weight": "≈ 130 g",
+    "cream": {
+     "uz": "Qaymoqli muss",
+     "ru": "Сливочный мусс"
+    },
+    "filling": {
+     "uz": "Nok konfiti, biskvit",
+     "ru": "Грушевый конфитюр, бисквит"
+    },
+    "decor": {
+     "uz": "Sariq-qizg'ish qoplama, shokolad barg",
+     "ru": "Жёлто-розовое покрытие, шоколадный лист"
+    }
+   }
+  },
+  {
+   "id": "m_kofe",
+   "category": "mevali",
+   "price": 28000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "☕",
+   "image": "img/meva_kofe.webp",
+   "images": [
+    "img/meva_kofe.webp",
+    "img/meva_mix.webp"
+   ],
+   "min_days": 1,
+   "name": {
+    "uz": "Kofeli desert",
+    "ru": "Кофейный десерт"
+   },
+   "description": {
+    "uz": "Kofe doni shaklidagi muss desert, kofe va shokolad ta'mi bilan.",
+    "ru": "Муссовый десерт в форме кофейного зерна со вкусом кофе и шоколада."
+   },
+   "specs": {
+    "weight": "≈ 120 g",
+    "cream": {
+     "uz": "Kofeli muss",
+     "ru": "Кофейный мусс"
+    },
+    "filling": {
+     "uz": "Shokoladli biskvit, karamel",
+     "ru": "Шоколадный бисквит, карамель"
+    },
+    "decor": {
+     "uz": "Shokoladli qoplama",
+     "ru": "Шоколадное покрытие"
+    }
+   }
+  },
+  {
+   "id": "m_fistashka",
+   "category": "mevali",
+   "price": 30000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥜",
+   "image": "img/meva_fistashka.webp",
+   "images": [
+    "img/meva_fistashka.webp",
+    "img/meva_mix.webp"
+   ],
+   "min_days": 1,
+   "name": {
+    "uz": "Fistashkali desert",
+    "ru": "Фисташковый десерт"
+   },
+   "description": {
+    "uz": "Fistashka shaklidagi muss desert, fistashka kremi bilan.",
+    "ru": "Муссовый десерт в форме фисташки с фисташковым кремом."
+   },
+   "specs": {
+    "weight": "≈ 130 g",
+    "cream": {
+     "uz": "Fistashkali muss",
+     "ru": "Фисташковый мусс"
+    },
+    "filling": {
+     "uz": "Fistashka kremi, malina, biskvit",
+     "ru": "Фисташковый крем, малина, бисквит"
+    },
+    "decor": {
+     "uz": "Yashil-pushti qoplama",
+     "ru": "Зелёно-розовое покрытие"
+    }
+   }
+  },
+  {
+   "id": "p_tvorog",
+   "category": "pirojniy",
+   "price": 15000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "bolalar",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍰",
+   "image": "img/tvorog1.webp",
+   "images": [
+    "img/tvorog1.webp",
+    "img/tvorog2.webp"
+   ],
+   "min_days": 0,
+   "name": {
+    "uz": "Tvorojniy",
+    "ru": "Творожное пирожное"
+   },
+   "description": {
+    "uz": "3 qavatli yumshoq biskvit, qaymoqli tvorogli krem va orasida malina. Usti kokos qirindisi bilan.",
+    "ru": "Нежный бисквит в 3 слоя, сливочно-творожный крем и малина между слоями. Сверху кокосовая стружка."
+   },
+   "specs": {
+    "tiers": 3,
+    "cream": {
+     "uz": "Qaymoqli tvorogli krem",
+     "ru": "Сливочно-творожный крем"
+    },
+    "filling": {
+     "uz": "Biskvit, qavatlar orasida malina",
+     "ru": "Бисквит, малина между слоями"
+    },
+    "decor": {
+     "uz": "Kokos qirindisi, qaymoq gullari, murabbo",
+     "ru": "Кокосовая стружка, кремовые розочки, джем"
+    }
+   }
+  },
+  {
+   "id": "p_ekler",
+   "category": "pirojniy",
+   "price": 12000,
+   "unit": "dona",
+   "events": [
+    "har_kuni",
+    "korporativ",
+    "toy"
+   ],
+   "emoji": "🥖",
+   "image": "",
+   "min_days": 0,
+   "name": {
+    "uz": "Ekler",
+    "ru": "Эклер"
+   },
+   "description": {
+    "uz": "Qaymoqli krem bilan.",
+    "ru": "Со сливочным кремом."
+   }
+  },
+  {
+   "id": "p_kapkeyk",
+   "category": "pirojniy",
+   "price": 15000,
+   "unit": "dona",
+   "events": [
+    "bolalar",
+    "tugilgan_kun",
+    "beshik"
+   ],
+   "emoji": "🧁",
+   "image": "",
+   "min_days": 0,
+   "name": {
+    "uz": "Kapkeyk",
+    "ru": "Капкейк"
+   },
+   "description": {
+    "uz": "Kremli, rangli bezakli kapkeyk.",
+    "ru": "Капкейк с кремом и ярким декором."
+   }
+  },
+  {
+   "id": "p_makaron",
+   "category": "pirojniy",
+   "price": 9000,
+   "unit": "dona",
+   "events": [
+    "toy",
+    "yubiley",
+    "korporativ"
+   ],
+   "emoji": "🍬",
+   "image": "",
+   "min_days": 1,
+   "name": {
+    "uz": "Makaron",
+    "ru": "Макарон"
+   },
+   "description": {
+    "uz": "Fransuz makaroni, turli ta'mlar.",
+    "ru": "Французские макарон, разные вкусы."
+   }
+  },
+  {
+   "id": "c_uy",
+   "category": "pechene",
+   "price": 60000,
+   "unit": "kg",
+   "events": [
+    "har_kuni",
+    "beshik",
+    "sunnat"
+   ],
+   "emoji": "🍪",
+   "image": "",
+   "min_days": 0,
+   "name": {
+    "uz": "Uy pechenyesi",
+    "ru": "Домашнее печенье"
+   },
+   "description": {
+    "uz": "Sariyog'li pechenye.",
+    "ru": "Песочное печенье на сливочном масле."
+   }
+  },
+  {
+   "id": "s_dastur",
+   "category": "toplam",
+   "price": 900000,
+   "unit": "toplam",
+   "events": [
+    "toy",
+    "sunnat",
+    "beshik",
+    "yubiley"
+   ],
+   "emoji": "🎁",
+   "image": "",
+   "min_days": 3,
+   "name": {
+    "uz": "Shirinliklar to'plami (30 kishilik)",
+    "ru": "Набор сладостей (на 30 персон)"
+   },
+   "description": {
+    "uz": "Pirojniy, pechenye, makaron va mini desertlar — bayram dasturxoni uchun.",
+    "ru": "Пирожные, печенье, макарон и мини-десерты для праздничного стола."
+   }
+  },
+  {
+   "id": "s_candy",
+   "category": "toplam",
+   "price": 1500000,
+   "unit": "toplam",
+   "events": [
+    "toy",
+    "bolalar",
+    "tugilgan_kun",
+    "korporativ"
+   ],
+   "emoji": "🍭",
+   "image": "",
+   "min_days": 4,
+   "name": {
+    "uz": "Candy bar (shirinlik stoli)",
+    "ru": "Кэнди-бар (сладкий стол)"
+   },
+   "description": {
+    "uz": "Bezatilgan shirinlik stoli: tort, kapkeyk, makaron, keyk-poplar.",
+    "ru": "Оформленный сладкий стол: торт, капкейки, макарон, кейк-попсы."
+   }
+  },
+  {
+   "id": "d_20",
+   "category": "dasturxon",
+   "price": 500000,
+   "unit": "xizmat",
+   "events": [
+    "dasturxon",
+    "toy",
+    "sunnat",
+    "beshik",
+    "yubiley",
+    "tugilgan_kun",
+    "korporativ"
+   ],
+   "emoji": "🍽",
+   "image": "",
+   "min_days": 3,
+   "name": {
+    "uz": "Dasturxon bezash (20 kishilik)",
+    "ru": "Сервировка стола (на 20 персон)"
+   },
+   "description": {
+    "uz": "Dasturxonni bezash, idish-tovoq, shirinlik va mevalarni chiroyli terib berish. Joyiga borib tayyorlaymiz.",
+    "ru": "Оформление стола, посуда, красивая выкладка сладостей и фруктов. Выезжаем на место."
+   }
+  },
+  {
+   "id": "d_50",
+   "category": "dasturxon",
+   "price": 1000000,
+   "unit": "xizmat",
+   "events": [
+    "dasturxon",
+    "toy",
+    "sunnat",
+    "beshik",
+    "yubiley",
+    "korporativ"
+   ],
+   "emoji": "🍽",
+   "image": "",
+   "min_days": 3,
+   "name": {
+    "uz": "Dasturxon bezash (50 kishilik)",
+    "ru": "Сервировка стола (на 50 персон)"
+   },
+   "description": {
+    "uz": "Katta bayramlar uchun: dasturxon bezagi, idish-tovoq va xizmat ko'rsatish.",
+    "ru": "Для больших праздников: оформление стола, посуда и обслуживание."
+   }
+  },
+  {
+   "id": "d_100",
+   "category": "dasturxon",
+   "price": 1800000,
+   "unit": "xizmat",
+   "events": [
+    "dasturxon",
+    "toy",
+    "sunnat",
+    "yubiley",
+    "korporativ"
+   ],
+   "emoji": "🍽",
+   "image": "",
+   "min_days": 5,
+   "name": {
+    "uz": "Dasturxon bezash (100 kishilik)",
+    "ru": "Сервировка стола (на 100 персон)"
+   },
+   "description": {
+    "uz": "To'y va katta tadbirlar uchun to'liq dasturxon xizmati.",
+    "ru": "Полное оформление стола для свадеб и крупных мероприятий."
+   }
+  },
+  {
+   "id": "d_somsa_gosht",
+   "category": "pishiriq",
+   "price": 8000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥟",
+   "image": "img/dx_37.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Go'shtli somsa",
+    "ru": "Самса с мясом"
+   },
+   "description": {
+    "uz": "Go'shtli somsa — dasturxon uchun yangi pishirilgan.",
+    "ru": "Самса с мясом — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, mol go'shti, dumba, piyoz, ziravorlar, kunjut",
+     "ru": "Слоёное тесто, говядина, курдюк, лук, специи, кунжут"
+    }
+   }
+  },
+  {
+   "id": "d_somsa_qovoq",
+   "category": "pishiriq",
+   "price": 7000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🎃",
+   "image": "img/dx_38.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Qovoqli somsa",
+    "ru": "Самса с тыквой"
+   },
+   "description": {
+    "uz": "Qovoqli somsa — dasturxon uchun yangi pishirilgan.",
+    "ru": "Самса с тыквой — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, qovoq, piyoz, ziravorlar, kunjut",
+     "ru": "Слоёное тесто, тыква, лук, специи, кунжут"
+    }
+   }
+  },
+  {
+   "id": "d_qatlama_kok",
+   "category": "pishiriq",
+   "price": 10000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🌿",
+   "image": "img/dx_39.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Ko'k qatlama",
+    "ru": "Катлама с зеленью"
+   },
+   "description": {
+    "uz": "Ko'k qatlama — dasturxon uchun yangi pishirilgan.",
+    "ru": "Катлама с зеленью — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, ko'k piyoz, ko'katlar, sariyog'",
+     "ru": "Слоёное тесто, зелёный лук, зелень, сливочное масло"
+    }
+   }
+  },
+  {
+   "id": "d_qatlama",
+   "category": "pishiriq",
+   "price": 8000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🫓",
+   "image": "img/dx_40.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Oddiy qatlama",
+    "ru": "Катлама"
+   },
+   "description": {
+    "uz": "Oddiy qatlama — dasturxon uchun yangi pishirilgan.",
+    "ru": "Катлама — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, sariyog'",
+     "ru": "Слоёное тесто, сливочное масло"
+    }
+   }
+  },
+  {
+   "id": "d_bulochka",
+   "category": "pishiriq",
+   "price": 6000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥐",
+   "image": "img/dx_41.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Nachinkali bulochka",
+    "ru": "Булочка с начинкой"
+   },
+   "description": {
+    "uz": "Nachinkali bulochka — dasturxon uchun yangi pishirilgan.",
+    "ru": "Булочка с начинкой — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yumshoq xamir, ichida nachinka, ustida mak",
+     "ru": "Сдобное тесто, начинка, мак сверху"
+    }
+   }
+  },
+  {
+   "id": "d_chuchvara_kart",
+   "category": "pishiriq",
+   "price": 60000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥔",
+   "image": "img/dx_42.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Qovurma chuchvara (kartoshkali)",
+    "ru": "Жареные чучвара с картошкой"
+   },
+   "description": {
+    "uz": "Qovurma chuchvara (kartoshkali) — dasturxon uchun yangi pishirilgan.",
+    "ru": "Жареные чучвара с картошкой — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yupqa xamir, kartoshka, piyoz, qovurilgan",
+     "ru": "Тонкое тесто, картофель, лук, обжарены во фритюре"
+    }
+   }
+  },
+  {
+   "id": "d_chuchvara_gosht",
+   "category": "pishiriq",
+   "price": 80000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥟",
+   "image": "img/dx_43.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Qovurma chuchvara (go'shtli)",
+    "ru": "Жареные чучвара с мясом"
+   },
+   "description": {
+    "uz": "Qovurma chuchvara (go'shtli) — dasturxon uchun yangi pishirilgan.",
+    "ru": "Жареные чучвара с мясом — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yupqa xamir, go'sht, piyoz, qovurilgan",
+     "ru": "Тонкое тесто, мясо, лук, обжарены во фритюре"
+    }
+   }
+  },
+  {
+   "id": "d_blinchik_gosht",
+   "category": "pishiriq",
+   "price": 7000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🌯",
+   "image": "img/dx_44.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Go'shtli blinchik",
+    "ru": "Блинчик с мясом"
+   },
+   "description": {
+    "uz": "Go'shtli blinchik — dasturxon uchun yangi pishirilgan.",
+    "ru": "Блинчик с мясом — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yupqa blin, go'sht, piyoz",
+     "ru": "Тонкий блин, мясо, лук"
+    }
+   }
+  },
+  {
+   "id": "d_blinchik_kart",
+   "category": "pishiriq",
+   "price": 5000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🌯",
+   "image": "img/dx_44.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Kartoshkali blinchik",
+    "ru": "Блинчик с картошкой"
+   },
+   "description": {
+    "uz": "Kartoshkali blinchik — dasturxon uchun yangi pishirilgan.",
+    "ru": "Блинчик с картошкой — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yupqa blin, kartoshka, piyoz",
+     "ru": "Тонкий блин, картофель, лук"
+    }
+   }
+  },
+  {
+   "id": "d_sosiska",
+   "category": "pishiriq",
+   "price": 7000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🌭",
+   "image": "img/dx_45.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Sosiskali bulochka",
+    "ru": "Сосиска в тесте"
+   },
+   "description": {
+    "uz": "Sosiskali bulochka — dasturxon uchun yangi pishirilgan.",
+    "ru": "Сосиска в тесте — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yumshoq xamir, sosiska, kunjut",
+     "ru": "Сдобное тесто, сосиска, кунжут"
+    }
+   }
+  },
+  {
+   "id": "d_somsa_kok",
+   "category": "pishiriq",
+   "price": 7000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥬",
+   "image": "img/dx_46.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Ko'k somsa",
+    "ru": "Самса с зеленью"
+   },
+   "description": {
+    "uz": "Ko'k somsa — dasturxon uchun yangi pishirilgan.",
+    "ru": "Самса с зеленью — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, ko'katlar, piyoz, qora va oq kunjut",
+     "ru": "Слоёное тесто, зелень, лук, чёрный и белый кунжут"
+    }
+   }
+  },
+  {
+   "id": "d_paxlava_arab",
+   "category": "paxlava",
+   "price": 120000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🍯",
+   "image": "img/dx_47.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Arabskiy paxlava",
+    "ru": "Арабская пахлава"
+   },
+   "description": {
+    "uz": "Arabskiy paxlava — dasturxon uchun yangi pishirilgan.",
+    "ru": "Арабская пахлава — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, yong'oq, mayiz, asal qiyomi",
+     "ru": "Слоёное тесто, грецкий орех, изюм, медовый сироп"
+    }
+   }
+  },
+  {
+   "id": "d_baklava_turk",
+   "category": "paxlava",
+   "price": 150000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥮",
+   "image": "img/dx_48.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Turetskiy baklava",
+    "ru": "Турецкая баклава"
+   },
+   "description": {
+    "uz": "Turetskiy baklava — dasturxon uchun yangi pishirilgan.",
+    "ru": "Турецкая баклава — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Yupqa xamir qatlamlari, yong'oq, pista, shakar qiyomi",
+     "ru": "Тонкие слои теста, орехи, фисташка, сахарный сироп"
+    }
+   }
+  },
+  {
+   "id": "d_muravenik",
+   "category": "paxlava",
+   "price": 5000,
+   "unit": "dona",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🐜",
+   "image": "img/dx_49.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Muravenik",
+    "ru": "Муравейник"
+   },
+   "description": {
+    "uz": "Muravenik — dasturxon uchun yangi pishirilgan.",
+    "ru": "Муравейник — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qovurilgan xamir bo'laklari, quyultirilgan sut (varyonka), yong'oq",
+     "ru": "Жареное тесто, варёная сгущёнка, орехи"
+    }
+   }
+  },
+  {
+   "id": "d_paxlava_mini",
+   "category": "paxlava",
+   "price": 100000,
+   "unit": "kg",
+   "events": [
+    "dasturxon",
+    "toy",
+    "tugilgan_kun",
+    "beshik",
+    "sunnat",
+    "yubiley",
+    "korporativ",
+    "har_kuni"
+   ],
+   "emoji": "🥐",
+   "image": "img/dx_50.webp",
+   "min_days": 1,
+   "name": {
+    "uz": "Mini paxlava",
+    "ru": "Мини-пахлава"
+   },
+   "description": {
+    "uz": "Mini paxlava — dasturxon uchun yangi pishirilgan.",
+    "ru": "Мини-пахлава — свежая выпечка для праздничного стола."
+   },
+   "specs": {
+    "composition": {
+     "uz": "Qatlamli xamir, yong'oq, oqsilli krem, asal qiyomi",
+     "ru": "Слоёное тесто, орехи, белковый крем, медовый сироп"
+    }
+   }
+  }
+ ]
 }
